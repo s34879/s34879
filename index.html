@@ -2,30 +2,137 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<title>หน้าแนะนำตัวของฉัน</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Portfolio</title>
+
 <style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
 body {
-background-color: #E8829E; color: #333;
-text-align: center; padding: 50px;
-
+    background: #fff5f8;
+    color: #333;
 }
-.card {
-background: white; border-radius: 50px;
-box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-max-width: 500px; margin: 0 auto; padding: 30px;
 
+nav {
+    background: white;
+    padding: 18px;
+    text-align: center;
+    box-shadow: 0 2px 10px #ddd;
 }
-h1 { color: #2c3e50; }
-p { font-size: 18px; line-height: 1.6; }
+
+nav a {
+    color: #d94f78;
+    text-decoration: none;
+    margin: 0 12px;
+    font-weight: bold;
+}
+
+.hero {
+    text-align: center;
+    padding: 70px 20px;
+    background: linear-gradient(135deg, #ffb6c9, #ffdce7);
+}
+
+.hero img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 6px solid white;
+    box-shadow: 0 5px 15px #bbb;
+}
+
+.hero h1 {
+    margin-top: 20px;
+    color: #8b3a55;
+    font-size: 40px;
+}
+
+.hero p {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 25px;
+    background: #e75480;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+}
+
+section {
+    max-width: 850px;
+    margin: 30px auto;
+    padding: 35px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px #eadde1;
+}
+
+h2 {
+    color: #e75480;
+    margin-bottom: 15px;
+}
+
+p {
+    line-height: 1.8;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #ffb6c9;
+    margin-top: 50px;
+}
 </style>
 </head>
+
 <body>
-<div class="card">
-<h1>ยินดีต้อนรับสู่โปรไฟล์ของฉัน </h1>
-<p>สวัสดีค่ะ! ดิฉันชื่อ <strong>ภัคจิรา นงนุช (Pakjira nongnooch)</strong></p>
-<p>ขณะนี้กำลังศึกษา/สนใจด้าน English</p>
-<p>นี่คือเว็บไซต์แรกของผมที่โฮสต์บน GitHub Pages!</p>
-  <a href="portfolio.html" class="btn"> ดูแฟ้มผลงาน</a>
+
+<nav>
+    <a href="index.html">🏠 หน้าแรก</a>
+    <a href="about.html">👩 แนะนำตัว</a>
+    <a href="portfolio.html">🏆 ผลงาน</a>
+    <a href="contact.html">📞 ติดต่อ</a>
+</nav>
+
+<div class="hero">
+
+    <!-- เปลี่ยน profile.jpg เป็นชื่อรูปของเรา -->
+    <img src="profile.jpg" alt="รูปโปรไฟล์">
+
+    <h1>สวัสดีค่ะ 👋</h1>
+
+    <p>ฉันชื่อ ภัคจิรา นงนุช</p>
+    <p>นักเรียนชั้นมัธยมศึกษาปีที่ 6</p>
+
+    <a href="about.html" class="button">
+        รู้จักฉันมากขึ้น 💗
+    </a>
+
 </div>
+
+<section>
+    <h2>✨ Welcome to My Portfolio</h2>
+
+    <p>
+        ยินดีต้อนรับเข้าสู่เว็บไซต์แนะนำตัวของฉัน
+        เว็บไซต์นี้จัดทำขึ้นเพื่อแนะนำตัว ประวัติ
+        ความสนใจ ความสามารถ และผลงานต่าง ๆ
+    </p>
+</section>
+
+<footer>
+    <p>Thank you for visiting my website 💕</p>
+</footer>
+
 </body>
 </html>
