@@ -8,6 +8,10 @@
 
 <style>
 
+/* =========================
+   RESET
+========================= */
+
 *{
     margin:0;
     padding:0;
@@ -21,7 +25,10 @@ body{
     overflow-x:hidden;
 }
 
-/* ================= พื้นหลังดวงดาว ================= */
+
+/* =========================
+   พื้นหลังดวงดาวสีดำ
+========================= */
 
 .space{
     position:fixed;
@@ -29,11 +36,9 @@ body{
     z-index:-20;
 
     background:
-        linear-gradient(
-            rgba(0,5,25,.25),
-            rgba(0,10,40,.35)
-        ),
         url("space.jpg") center/cover no-repeat;
+
+    filter:brightness(0.35) contrast(1.15);
 }
 
 .space::after{
@@ -42,17 +47,26 @@ body{
     inset:0;
 
     background-image:
-        radial-gradient(white 1.3px,transparent 1.3px),
-        radial-gradient(#8eeaff 1px,transparent 1px);
+        radial-gradient(
+            white 1.3px,
+            transparent 1.3px
+        ),
+        radial-gradient(
+            #8eeaff 1px,
+            transparent 1px
+        );
 
     background-size:
         90px 90px,
         145px 145px;
 
-    opacity:.7;
+    opacity:.65;
 }
 
-/* ================= เมนู ================= */
+
+/* =========================
+   เมนูด้านบน
+========================= */
 
 nav{
     position:relative;
@@ -68,17 +82,22 @@ nav{
 
     padding:10px;
 
-    background:rgba(0,8,30,.7);
+    background:rgba(0,5,20,.75);
+
     backdrop-filter:blur(12px);
 
-    border-bottom:1px solid rgba(100,220,255,.3);
+    border-bottom:
+        1px solid
+        rgba(100,220,255,.3);
 }
 
 nav a{
     color:white;
+
     text-decoration:none;
 
     padding:10px 18px;
+
     border-radius:25px;
 
     font-size:16px;
@@ -87,11 +106,20 @@ nav a{
 }
 
 nav a:hover{
-    background:rgba(0,190,255,.2);
+    background:
+        rgba(0,190,255,.2);
+
     color:#7eeaff;
+
+    box-shadow:
+        0 0 18px
+        rgba(0,200,255,.5);
 }
 
-/* ================= ระบบสุริยะ ================= */
+
+/* =========================
+   ระบบสุริยะ
+========================= */
 
 .solar{
     position:fixed;
@@ -102,13 +130,18 @@ nav a:hover{
     right:-100px;
     top:55%;
 
-    transform:translateY(-50%);
+    transform:
+        translateY(-50%);
 
     z-index:-2;
+
     pointer-events:none;
 }
 
-/* ดวงอาทิตย์ */
+
+/* =========================
+   ดวงอาทิตย์
+========================= */
 
 .sun{
     position:absolute;
@@ -119,14 +152,15 @@ nav a:hover{
     left:50%;
     top:50%;
 
-    transform:translate(-50%,-50%);
+    transform:
+        translate(-50%,-50%);
 
     border-radius:50%;
 
     background:
         radial-gradient(
             circle,
-            #fff 3%,
+            #ffffff 3%,
             #fff8a0 22%,
             #ffd21c 48%,
             #ff8c00 75%,
@@ -134,14 +168,21 @@ nav a:hover{
         );
 
     box-shadow:
-        0 0 30px #fff,
+        0 0 30px #ffffff,
         0 0 65px #ffd21c,
-        0 0 120px #ff9d00;
+        0 0 120px #ff9d00,
+        0 0 190px rgba(255,120,0,.55);
 
-    animation:glow 3s ease-in-out infinite alternate;
+    animation:
+        sunGlow
+        3s
+        ease-in-out
+        infinite
+        alternate;
 }
 
-@keyframes glow{
+@keyframes sunGlow{
+
     from{
         filter:brightness(1);
     }
@@ -149,9 +190,13 @@ nav a:hover{
     to{
         filter:brightness(1.2);
     }
+
 }
 
-/* วงโคจร */
+
+/* =========================
+   วงโคจร
+========================= */
 
 .orbit{
     position:absolute;
@@ -159,7 +204,9 @@ nav a:hover{
     left:50%;
     top:50%;
 
-    border:1px solid rgba(90,205,255,.35);
+    border:
+        1px solid
+        rgba(90,205,255,.35);
 
     border-radius:50%;
 
@@ -168,68 +215,168 @@ nav a:hover{
         rotateX(65deg);
 }
 
-.o1{width:160px;height:160px;}
-.o2{width:240px;height:240px;}
-.o3{width:325px;height:325px;}
-.o4{width:420px;height:420px;}
-.o5{width:530px;height:530px;}
-.o6{width:640px;height:640px;}
+.o1{
+    width:160px;
+    height:160px;
+}
 
-/* ดาวเคราะห์ */
+.o2{
+    width:240px;
+    height:240px;
+}
+
+.o3{
+    width:325px;
+    height:325px;
+}
+
+.o4{
+    width:420px;
+    height:420px;
+}
+
+.o5{
+    width:530px;
+    height:530px;
+}
+
+.o6{
+    width:640px;
+    height:640px;
+}
+
+
+/* =========================
+   ดาวเคราะห์
+========================= */
 
 .planet{
     position:absolute;
+
     left:50%;
     top:50%;
+
     border-radius:50%;
 }
+
+
+/* ดาวพุธ */
 
 .p1{
     width:13px;
     height:13px;
+
     background:#aaa;
-    animation:orbit1 5s linear infinite;
+
+    animation:
+        orbit1
+        5s
+        linear
+        infinite;
 }
+
+
+/* ดาวศุกร์ */
 
 .p2{
     width:19px;
     height:19px;
+
     background:#d6a96c;
-    animation:orbit2 8s linear infinite;
+
+    box-shadow:
+        0 0 10px #d6a96c;
+
+    animation:
+        orbit2
+        8s
+        linear
+        infinite;
 }
+
+
+/* โลก */
 
 .p3{
     width:24px;
     height:24px;
-    background:#087cff;
-    box-shadow:0 0 15px #00cfff;
-    animation:orbit3 11s linear infinite;
+
+    background:
+        radial-gradient(
+            circle at 30% 30%,
+            #8df3ff,
+            #087cff 55%,
+            #063c9e
+        );
+
+    box-shadow:
+        0 0 15px #00cfff;
+
+    animation:
+        orbit3
+        11s
+        linear
+        infinite;
 }
+
+
+/* ดาวอังคาร */
 
 .p4{
     width:19px;
     height:19px;
+
     background:#d9533d;
-    animation:orbit4 15s linear infinite;
+
+    box-shadow:
+        0 0 10px #e65b3c;
+
+    animation:
+        orbit4
+        15s
+        linear
+        infinite;
 }
+
+
+/* ดาวพฤหัส */
 
 .p5{
     width:43px;
     height:43px;
-    background:linear-gradient(
-        #d8b58c,
-        #8d684d,
-        #d8c09b
-    );
-    animation:orbit5 20s linear infinite;
+
+    background:
+        linear-gradient(
+            #d8b58c,
+            #8d684d,
+            #d8c09b
+        );
+
+    animation:
+        orbit5
+        20s
+        linear
+        infinite;
 }
+
+
+/* ดาวเสาร์ */
 
 .p6{
     width:35px;
     height:35px;
+
     background:#d9bd7c;
-    animation:orbit6 26s linear infinite;
+
+    animation:
+        orbit6
+        26s
+        linear
+        infinite;
 }
+
+
+/* วงแหวนดาวเสาร์ */
 
 .p6::after{
     content:"";
@@ -246,67 +393,153 @@ nav a:hover{
         translate(-50%,-50%)
         rotate(-15deg);
 
-    border:3px solid rgba(230,210,160,.8);
+    border:
+        3px solid
+        rgba(230,210,160,.8);
 
     border-radius:50%;
 }
 
-/* ================= การหมุน ================= */
+
+/* =========================
+   Animation ดาวเคราะห์
+========================= */
 
 @keyframes orbit1{
-    from{transform:rotate(0deg) translateX(80px);}
-    to{transform:rotate(360deg) translateX(80px);}
+
+    from{
+        transform:
+            rotate(0deg)
+            translateX(80px);
+    }
+
+    to{
+        transform:
+            rotate(360deg)
+            translateX(80px);
+    }
+
 }
 
 @keyframes orbit2{
-    from{transform:rotate(60deg) translateX(120px);}
-    to{transform:rotate(420deg) translateX(120px);}
+
+    from{
+        transform:
+            rotate(60deg)
+            translateX(120px);
+    }
+
+    to{
+        transform:
+            rotate(420deg)
+            translateX(120px);
+    }
+
 }
 
 @keyframes orbit3{
-    from{transform:rotate(120deg) translateX(162px);}
-    to{transform:rotate(480deg) translateX(162px);}
+
+    from{
+        transform:
+            rotate(120deg)
+            translateX(162px);
+    }
+
+    to{
+        transform:
+            rotate(480deg)
+            translateX(162px);
+    }
+
 }
 
 @keyframes orbit4{
-    from{transform:rotate(180deg) translateX(210px);}
-    to{transform:rotate(540deg) translateX(210px);}
+
+    from{
+        transform:
+            rotate(180deg)
+            translateX(210px);
+    }
+
+    to{
+        transform:
+            rotate(540deg)
+            translateX(210px);
+    }
+
 }
 
 @keyframes orbit5{
-    from{transform:rotate(230deg) translateX(265px);}
-    to{transform:rotate(590deg) translateX(265px);}
+
+    from{
+        transform:
+            rotate(230deg)
+            translateX(265px);
+    }
+
+    to{
+        transform:
+            rotate(590deg)
+            translateX(265px);
+    }
+
 }
 
 @keyframes orbit6{
-    from{transform:rotate(300deg) translateX(320px);}
-    to{transform:rotate(660deg) translateX(320px);}
+
+    from{
+        transform:
+            rotate(300deg)
+            translateX(320px);
+    }
+
+    to{
+        transform:
+            rotate(660deg)
+            translateX(320px);
+    }
+
 }
 
-/* ================= เนื้อหา ================= */
+
+/* =========================
+   เนื้อหาหน้าแรก
+========================= */
 
 .main{
     position:relative;
+
     z-index:10;
 
-    min-height:calc(100vh - 75px);
+    min-height:
+        calc(100vh - 75px);
 
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 
-    padding:40px 20px 60px;
+    padding:
+        40px
+        20px
+        60px;
 }
 
 .content{
     width:700px;
+
     text-align:center;
 }
 
-/* Welcome */
+
+/* =========================
+   Welcome
+========================= */
 
 .welcome{
     font-size:40px;
+
     font-weight:900;
 
     color:#69e8ff;
@@ -316,9 +549,14 @@ nav a:hover{
         0 0 25px rgba(0,200,255,.7);
 
     margin-bottom:25px;
+
+    letter-spacing:1px;
 }
 
-/* รูป */
+
+/* =========================
+   รูปโปรไฟล์
+========================= */
 
 .profile{
     width:150px;
@@ -328,16 +566,24 @@ nav a:hover{
 
     border-radius:50%;
 
-    border:4px solid #7cecff;
+    border:
+        4px solid
+        #7cecff;
 
     box-shadow:
-        0 0 20px rgba(0,210,255,.8),
-        0 0 45px rgba(0,150,255,.45);
+        0 0 20px
+        rgba(0,210,255,.8),
+
+        0 0 45px
+        rgba(0,150,255,.45);
 
     margin-bottom:15px;
 }
 
-/* ชื่อ */
+
+/* =========================
+   ชื่อ
+========================= */
 
 .name{
     margin-bottom:20px;
@@ -357,30 +603,44 @@ nav a:hover{
 
 .name p{
     font-size:19px;
+
     color:#d9f8ff;
 }
 
-/* ================= การ์ด ================= */
+
+/* =========================
+   การ์ดแนะนำตัว
+========================= */
 
 .intro-card{
 
-    padding:30px 35px;
+    padding:
+        30px
+        35px;
 
-    background:rgba(0,25,65,.82);
+    background:
+        rgba(0,20,55,.86);
 
     backdrop-filter:blur(14px);
 
-    border:1px solid rgba(100,220,255,.5);
+    border:
+        1px solid
+        rgba(100,220,255,.5);
 
     border-radius:30px;
 
     box-shadow:
-        0 0 30px rgba(0,130,255,.25);
+        0 0 30px
+        rgba(0,130,255,.25);
 }
 
-/* แนะนำตัว */
+
+/* =========================
+   แนะนำตัวสั้น ๆ
+========================= */
 
 .intro{
+
     font-size:19px;
 
     line-height:1.8;
@@ -390,9 +650,13 @@ nav a:hover{
     margin-bottom:20px;
 }
 
-/* เป้าหมาย */
+
+/* =========================
+   เป้าหมาย
+========================= */
 
 .future{
+
     font-size:17px;
 
     line-height:1.8;
@@ -403,15 +667,22 @@ nav a:hover{
 }
 
 .future strong{
+
     color:#69eaff;
 }
 
-/* ปุ่ม */
+
+/* =========================
+   ปุ่ม
+========================= */
 
 .more{
+
     display:inline-block;
 
-    padding:14px 35px;
+    padding:
+        14px
+        35px;
 
     border-radius:35px;
 
@@ -431,19 +702,25 @@ nav a:hover{
     font-weight:bold;
 
     box-shadow:
-        0 0 20px rgba(0,210,255,.7);
+        0 0 20px
+        rgba(0,210,255,.7);
 
     transition:.3s;
 }
 
 .more:hover{
+
     transform:scale(1.07);
 
     box-shadow:
-        0 0 35px #00d9ff;
+        0 0 35px
+        #00d9ff;
 }
 
-/* ================= มือถือ ================= */
+
+/* =========================
+   มือถือ
+========================= */
 
 @media(max-width:800px){
 
@@ -457,7 +734,10 @@ nav a:hover{
 
     nav a{
         font-size:13px;
-        padding:8px 10px;
+
+        padding:
+            8px
+            10px;
     }
 
     .main{
@@ -482,7 +762,9 @@ nav a:hover{
     }
 
     .intro-card{
-        padding:25px 20px;
+        padding:
+            25px
+            20px;
     }
 
     .intro{
@@ -494,140 +776,35 @@ nav a:hover{
     }
 
     .solar{
+
         width:520px;
         height:520px;
 
         right:-270px;
+
         top:55%;
 
         opacity:.5;
     }
+
 }
 
 </style>
 </head>
 
+
 <body>
 
-<!-- พื้นหลัง -->
+
+<!-- =========================
+     พื้นหลัง
+========================= -->
 
 <div class="space"></div>
 
 
-<!-- ระบบสุริยะ -->
+<!-- =========================
+     ระบบสุริยะ
+========================= -->
 
 <div class="solar">
-
-    <div class="orbit o1"></div>
-    <div class="orbit o2"></div>
-    <div class="orbit o3"></div>
-    <div class="orbit o4"></div>
-    <div class="orbit o5"></div>
-    <div class="orbit o6"></div>
-
-    <div class="sun"></div>
-
-    <div class="planet p1"></div>
-    <div class="planet p2"></div>
-    <div class="planet p3"></div>
-    <div class="planet p4"></div>
-    <div class="planet p5"></div>
-    <div class="planet p6"></div>
-
-</div>
-
-
-<!-- เมนู -->
-
-<nav>
-
-    <a href="index.html">🏠 หน้าแรก</a>
-
-    <a href="about.html">👩🏻‍💻 เกี่ยวกับฉัน</a>
-
-    <a href="portfolio.html">💼 ผลงาน</a>
-
-    <a href="contact.html">📱 ติดต่อ</a>
-
-</nav>
-
-
-<!-- หน้าแรก -->
-
-<div class="main">
-
-    <div class="content">
-
-
-        <div class="welcome">
-            WELCOME TO MY<br>
-            PORTFOLIO
-        </div>
-
-
-        <img
-            src="profile.jpg"
-            class="profile"
-            alt="รูปโปรไฟล์"
-        >
-
-
-        <div class="name">
-
-            <h1>
-                ภัคจิรา นงนุช
-            </h1>
-
-            <p>
-                นักเรียนชั้นมัธยมศึกษาปีที่ 6
-            </p>
-
-        </div>
-
-
-        <!-- เหลือแค่แนะนำตัว + เป้าหมาย -->
-
-        <div class="intro-card">
-
-            <div class="intro">
-
-                👋 สวัสดีค่ะ ฉันชื่อ
-                <strong>ภัคจิรา นงนุช</strong>
-
-                <br>
-
-                เป็นนักเรียนชั้นมัธยมศึกษาปีที่ 6
-                และเป็นคนที่ชอบเรียนรู้สิ่งใหม่ ๆ
-                พร้อมพัฒนาตัวเองอยู่เสมอ
-
-            </div>
-
-
-            <div class="future">
-
-                <strong>🎯 เป้าหมายในอนาคต</strong>
-
-                <br>
-
-                ศึกษาต่อด้านบริหารธุรกิจ
-                และพัฒนาความรู้และทักษะ
-                เพื่อเตรียมพร้อมสำหรับการทำงานในอนาคต
-
-            </div>
-
-
-            <a
-                href="about.html"
-                class="more"
-            >
-                ✨ รู้จักฉันมากขึ้น
-            </a>
-
-        </div>
-
-    </div>
-
-</div>
-
-</body>
-</html>
