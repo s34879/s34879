@@ -3,173 +3,256 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Portfolio</title>
+<title>Portfolio</title>
 
 <style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
 }
 
-body {
-    background: #fff5f8;
-    color: #333;
+body{
+  min-height:100vh;
+  color:white;
+  background:linear-gradient(135deg,#00152f,#003b73,#0077b6,#00152f);
+  overflow-x:hidden;
 }
 
-nav {
-    background: white;
-    padding: 18px;
-    text-align: center;
-    box-shadow: 0 2px 10px #ddd;
+.background{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  z-index:-1;
 }
 
-nav a {
-    color: #d94f78;
-    text-decoration: none;
-    margin: 0 12px;
-    font-weight: bold;
+.orb{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(2px);
+  opacity:.6;
+  animation:float 8s ease-in-out infinite;
 }
 
-header {
-    text-align: center;
-    padding: 50px 20px;
-    background: linear-gradient(135deg, #ffb6c9, #ffdce7);
+.orb1{
+  width:180px;
+  height:180px;
+  background:radial-gradient(circle at 30% 30%,white,#38bdf8);
+  top:10%;
+  left:5%;
 }
 
-header h1 {
-    color: #8b3a55;
-    font-size: 40px;
+.orb2{
+  width:250px;
+  height:250px;
+  background:radial-gradient(circle at 30% 30%,white,#0ea5e9);
+  right:5%;
+  top:25%;
+  animation-delay:2s;
 }
 
-.container {
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 20px;
+.orb3{
+  width:130px;
+  height:130px;
+  background:radial-gradient(circle at 30% 30%,white,#60a5fa);
+  bottom:10%;
+  left:40%;
+  animation-delay:4s;
 }
 
-.portfolio {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
+@keyframes float{
+  0%,100%{
+    transform:translate3d(0,0,0);
+  }
+
+  50%{
+    transform:translate3d(30px,-40px,50px) rotate(20deg);
+  }
 }
 
-.work {
-    background: white;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px #ddd;
-    transition: 0.3s;
+nav{
+  padding:20px;
+  text-align:center;
+  background:rgba(0,20,45,.65);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid rgba(100,210,255,.2);
 }
 
-.work:hover {
-    transform: translateY(-7px);
+nav a{
+  color:#dff6ff;
+  text-decoration:none;
+  font-weight:bold;
+  margin:0 12px;
+  transition:.3s;
 }
 
-.work img {
-    width: 100%;
-    height: 210px;
-    object-fit: cover;
+nav a:hover{
+  color:#38d9ff;
+  text-shadow:0 0 15px #00c8ff;
 }
 
-.content {
-    padding: 20px;
+.container{
+  max-width:1000px;
+  margin:70px auto;
+  padding:20px;
 }
 
-.content h2 {
-    color: #e75480;
-    margin-bottom: 10px;
+h1{
+  text-align:center;
+  color:#67e8f9;
+  margin-bottom:40px;
+  text-shadow:0 0 15px #06b6d4,0 0 30px #0284c7;
 }
 
-.content p {
-    line-height: 1.7;
+.portfolio{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
 }
 
-footer {
-    text-align: center;
-    padding: 30px;
-    background: #ffb6c9;
-    margin-top: 50px;
+.card{
+  overflow:hidden;
+  background:rgba(0,30,65,.6);
+  backdrop-filter:blur(15px);
+  border:1px solid rgba(130,220,255,.25);
+  border-radius:25px;
+  box-shadow:0 25px 55px rgba(0,50,100,.4);
+  transition:.5s;
+}
+
+.card:hover{
+  transform:translateY(-10px) scale(1.03);
+  box-shadow:0 35px 70px rgba(0,150,255,.35);
+}
+
+.card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+}
+
+.card-content{
+  padding:25px;
+}
+
+.card h2{
+  color:#67e8f9;
+  margin-bottom:10px;
+}
+
+.card p{
+  color:#d8f6ff;
+  line-height:1.7;
+}
+
+.next-button{
+  display:block;
+  width:max-content;
+  margin:40px auto 0;
+  padding:15px 30px;
+  color:white;
+  text-decoration:none;
+  background:linear-gradient(135deg,#0077b6,#00b4d8);
+  border:1px solid rgba(180,240,255,.4);
+  border-radius:30px;
+  box-shadow:0 0 15px rgba(0,200,255,.3);
+  transition:.4s;
+}
+
+.next-button:hover{
+  transform:translateY(-7px) scale(1.06);
+  box-shadow:0 0 25px #00d9ff,0 0 45px #0077b6;
+}
+
+footer{
+  margin-top:80px;
+  padding:30px;
+  text-align:center;
+  background:rgba(0,15,35,.8);
+  color:#9eeaff;
+}
+
+@media(max-width:700px){
+
+  .portfolio{
+    grid-template-columns:1fr;
+  }
+
+  nav a{
+    display:inline-block;
+    margin:5px 7px;
+    font-size:14px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<nav>
-    <a href="index.html">🏠 หน้าแรก</a>
-    <a href="about.html">👩 แนะนำตัว</a>
-    <a href="portfolio.html">🏆 ผลงาน</a>
-    <a href="contact.html">📞 ติดต่อ</a>
-</nav>
+<div class="background">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+</div>
 
-<header>
-    <h1>🏆 My Portfolio</h1>
-    <p>ผลงานและกิจกรรมของฉัน</p>
-</header>
+<nav>
+  <a href="index.html">🏠 หน้าแรก</a>
+  <a href="about.html">👩 แนะนำตัว</a>
+  <a href="portfolio.html">🏆 ผลงาน</a>
+  <a href="contact.html">📞 ติดต่อ</a>
+</nav>
 
 <div class="container">
 
-<div class="portfolio">
+  <h1>🏆 My Portfolio</h1>
 
-    <!-- ผลงานที่ 1 -->
-    <div class="work">
+  <div class="portfolio">
 
-        <img src="work1.jpg" alt="ผลงานที่ 1">
+    <div class="card">
+      <img src="work1.jpg">
 
-        <div class="content">
-            <h2>ผลงานที่ 1</h2>
-
-            <p>
-                เป็นสมาชิกสภานักเรียนปีการศึกษา2567
-            </p>
-        </div>
-
+      <div class="card-content">
+        <h2>ผลงานที่ 1</h2>
+        <p>
+          รายละเอียดเกี่ยวกับผลงานของฉัน
+        </p>
+      </div>
     </div>
 
+    <div class="card">
+      <img src="work2.jpg">
 
-    <!-- ผลงานที่ 2 -->
-    <div class="work">
-
-        <img src="work2.jpg" alt="ผลงานที่ 2">
-
-        <div class="content">
-            <h2>ผลงานที่ 2</h2>
-
-            <p>
-                ใส่รายละเอียดเกี่ยวกับผลงานที่สอง
-                เช่น หน้าที่ที่ได้รับ
-                และสิ่งที่ได้เรียนรู้
-            </p>
-        </div>
-
+      <div class="card-content">
+        <h2>ผลงานที่ 2</h2>
+        <p>
+          รายละเอียดเกี่ยวกับผลงานของฉัน
+        </p>
+      </div>
     </div>
 
+    <div class="card">
+      <img src="work3.jpg">
 
-    <!-- ผลงานที่ 3 -->
-    <div class="work">
-
-        <img src="work3.jpg" alt="ผลงานที่ 3">
-
-        <div class="content">
-            <h2>ผลงานที่ 3</h2>
-
-            <p>
-                ใส่รายละเอียดเกี่ยวกับผลงานที่สาม
-                เช่น การแข่งขัน โครงงาน
-                หรือกิจกรรมต่าง ๆ
-            </p>
-        </div>
-
+      <div class="card-content">
+        <h2>ผลงานที่ 3</h2>
+        <p>
+          รายละเอียดเกี่ยวกับผลงานของฉัน
+        </p>
+      </div>
     </div>
 
-</div>
+  </div>
+
+  <!-- ปุ่มไปหน้าที่ 4 -->
+  <a href="contact.html" class="next-button">
+    ➡️ ดูหน้าถัดไป
+  </a>
 
 </div>
 
 <footer>
-    My Portfolio 💕
+  ✦ My Portfolio ✦
 </footer>
 
 </body>
