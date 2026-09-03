@@ -3,11 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>เกี่ยวกับฉัน | Portfolio</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
 body{
     font-family:Arial,"Noto Sans Thai",sans-serif;
@@ -16,12 +19,13 @@ body{
     overflow:hidden;
 }
 
+/* ===== พื้นหลังอวกาศ ===== */
 .space{
     position:fixed;
     inset:0;
     z-index:-20;
     background:
-        linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.15)),
+        linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.25)),
         url("space.jpg") center/cover no-repeat;
 }
 
@@ -33,20 +37,24 @@ body{
         radial-gradient(white 1px,transparent 1.5px),
         radial-gradient(#8eeaff 1px,transparent 1.5px);
     background-size:100px 100px,160px 160px;
-    opacity:.35;
+    opacity:.4;
 }
 
+/* ===== เมนู ===== */
 nav{
     position:relative;
     z-index:100;
     min-height:75px;
+
     display:flex;
     justify-content:center;
     align-items:center;
     gap:20px;
+
     background:rgba(0,5,20,.65);
     backdrop-filter:blur(12px);
-    border-bottom:1px solid rgba(100,220,255,.3);
+
+    border-bottom:1px solid rgba(100,220,255,.35);
 }
 
 nav a{
@@ -60,39 +68,264 @@ nav a{
 nav a:hover{
     background:rgba(0,200,255,.2);
     color:#7eeaff;
+    box-shadow:0 0 15px #00cfff;
 }
 
+/* ===== ระบบสุริยะ 3D ===== */
+.solar{
+    position:fixed;
+    width:720px;
+    height:720px;
+
+    right:-170px;
+    top:55%;
+
+    transform:
+        translateY(-50%)
+        rotateX(20deg)
+        rotateY(-15deg);
+
+    perspective:1200px;
+
+    z-index:0;
+    pointer-events:none;
+}
+
+.sun{
+    position:absolute;
+    width:105px;
+    height:105px;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+    border-radius:50%;
+
+    background:radial-gradient(
+        circle,
+        #fff 4%,
+        #fff7a0 22%,
+        #ffd21c 48%,
+        #ff8500 75%,
+        #ff3d00 100%
+    );
+
+    box-shadow:
+        0 0 30px #fff,
+        0 0 70px #ffd21c,
+        0 0 130px #ff8500,
+        0 0 190px rgba(255,100,0,.5);
+
+    animation:sunGlow 3s infinite alternate;
+}
+
+@keyframes sunGlow{
+    from{
+        filter:brightness(1);
+    }
+    to{
+        filter:brightness(1.25);
+    }
+}
+
+/* วงโคจร */
+.orbit{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    border:1px solid rgba(100,220,255,.38);
+    border-radius:50%;
+
+    transform:
+        translate(-50%,-50%)
+        rotateX(65deg);
+
+    box-shadow:0 0 8px rgba(0,200,255,.12);
+}
+
+.o1{width:160px;height:160px;}
+.o2{width:230px;height:230px;}
+.o3{width:310px;height:310px;}
+.o4{width:400px;height:400px;}
+.o5{width:510px;height:510px;}
+.o6{width:630px;height:630px;}
+
+/* ดาวเคราะห์ */
+.planet{
+    position:absolute;
+    left:50%;
+    top:50%;
+    border-radius:50%;
+}
+
+/* พุธ */
+.p1{
+    width:13px;
+    height:13px;
+    background:#aaa;
+    box-shadow:0 0 8px #aaa;
+    animation:orbit1 5s linear infinite;
+}
+
+/* ศุกร์ */
+.p2{
+    width:19px;
+    height:19px;
+    background:#d6a96c;
+    box-shadow:0 0 10px #d6a96c;
+    animation:orbit2 8s linear infinite;
+}
+
+/* โลก */
+.p3{
+    width:25px;
+    height:25px;
+
+    background:
+        radial-gradient(circle at 30% 30%,#8df3ff,#087cff 55%,#063c9e);
+
+    box-shadow:
+        0 0 12px #00cfff,
+        0 0 25px rgba(0,200,255,.6);
+
+    animation:orbit3 11s linear infinite;
+}
+
+/* อังคาร */
+.p4{
+    width:19px;
+    height:19px;
+    background:#d9533d;
+    box-shadow:0 0 10px #ff573d;
+    animation:orbit4 15s linear infinite;
+}
+
+/* พฤหัส */
+.p5{
+    width:43px;
+    height:43px;
+
+    background:
+        linear-gradient(
+            #d8b58c,
+            #8d684d,
+            #e1c79e,
+            #9b7455
+        );
+
+    box-shadow:0 0 12px rgba(255,220,170,.5);
+
+    animation:orbit5 20s linear infinite;
+}
+
+/* เสาร์ */
+.p6{
+    width:35px;
+    height:35px;
+
+    background:#d9bd7c;
+
+    box-shadow:0 0 10px #d9bd7c;
+
+    animation:orbit6 26s linear infinite;
+}
+
+.p6::after{
+    content:"";
+
+    position:absolute;
+
+    width:62px;
+    height:16px;
+
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%)
+        rotate(-15deg);
+
+    border:3px solid rgba(230,210,160,.85);
+    border-radius:50%;
+}
+
+@keyframes orbit1{
+    from{transform:rotate(0deg) translateX(80px);}
+    to{transform:rotate(360deg) translateX(80px);}
+}
+
+@keyframes orbit2{
+    from{transform:rotate(60deg) translateX(115px);}
+    to{transform:rotate(420deg) translateX(115px);}
+}
+
+@keyframes orbit3{
+    from{transform:rotate(120deg) translateX(155px);}
+    to{transform:rotate(480deg) translateX(155px);}
+}
+
+@keyframes orbit4{
+    from{transform:rotate(180deg) translateX(200px);}
+    to{transform:rotate(540deg) translateX(200px);}
+}
+
+@keyframes orbit5{
+    from{transform:rotate(230deg) translateX(255px);}
+    to{transform:rotate(590deg) translateX(255px);}
+}
+
+@keyframes orbit6{
+    from{transform:rotate(300deg) translateX(315px);}
+    to{transform:rotate(660deg) translateX(315px);}
+}
+
+/* ===== เนื้อหา ===== */
 .main{
+    position:relative;
+    z-index:10;
+
     min-height:calc(100vh - 75px);
+
     display:flex;
     justify-content:center;
     align-items:center;
+
     padding:25px;
 }
 
 .card{
     width:700px;
-    padding:38px;
-    text-align:center;
 
-    background:rgba(0,20,55,.84);
+    padding:35px 40px;
+
+    background:rgba(0,15,45,.84);
     backdrop-filter:blur(14px);
 
     border:1px solid rgba(100,220,255,.45);
     border-radius:30px;
 
-    box-shadow:0 0 35px rgba(0,150,255,.3);
+    box-shadow:
+        0 0 35px rgba(0,150,255,.3);
+
+    text-align:center;
 }
 
 .card h1{
-    color:#69e8ff;
     font-size:40px;
-    text-shadow:0 0 15px #00d9ff;
+    color:#69e8ff;
+
+    text-shadow:
+        0 0 10px #00d9ff,
+        0 0 25px #008cff;
+
     margin-bottom:8px;
 }
 
 .subtitle{
-    color:#bfefff;
+    color:#c8f5ff;
     margin-bottom:25px;
 }
 
@@ -112,14 +345,62 @@ nav a:hover{
 
 .next{
     display:inline-block;
-    margin-top:12px;
+
+    margin-top:10px;
     padding:13px 30px;
-    background:linear-gradient(90deg,#0077ff,#00d9ff);
+
+    background:linear-gradient(
+        90deg,
+        #0077ff,
+        #00d9ff
+    );
+
     color:white;
     text-decoration:none;
+
     border-radius:30px;
+
     font-weight:bold;
-    box-shadow:0 0 20px rgba(0,210,255,.6);
+
+    box-shadow:
+        0 0 20px rgba(0,210,255,.6);
+
+    transition:.3s;
+}
+
+.next:hover{
+    transform:scale(1.06);
+}
+
+@media(max-width:800px){
+
+    body{
+        overflow:auto;
+    }
+
+    nav{
+        flex-wrap:wrap;
+        gap:5px;
+    }
+
+    nav a{
+        font-size:13px;
+        padding:8px 10px;
+    }
+
+    .solar{
+        right:-300px;
+        opacity:.55;
+    }
+
+    .card{
+        width:100%;
+        padding:28px 20px;
+    }
+
+    .card h1{
+        font-size:30px;
+    }
 }
 </style>
 </head>
@@ -127,6 +408,27 @@ nav a:hover{
 <body>
 
 <div class="space"></div>
+
+<!-- ระบบสุริยะ -->
+<div class="solar">
+
+    <div class="orbit o1"></div>
+    <div class="orbit o2"></div>
+    <div class="orbit o3"></div>
+    <div class="orbit o4"></div>
+    <div class="orbit o5"></div>
+    <div class="orbit o6"></div>
+
+    <div class="sun"></div>
+
+    <div class="planet p1"></div>
+    <div class="planet p2"></div>
+    <div class="planet p3"></div>
+    <div class="planet p4"></div>
+    <div class="planet p5"></div>
+    <div class="planet p6"></div>
+
+</div>
 
 <nav>
     <a href="index.html">🏠 หน้าแรก</a>
@@ -137,52 +439,52 @@ nav a:hover{
 
 <div class="main">
 
-    <div class="card">
+<div class="card">
 
-        <h1>ABOUT ME</h1>
+    <h1>ABOUT ME</h1>
 
-        <div class="subtitle">
-            เกี่ยวกับตัวฉัน
+    <div class="subtitle">
+        เกี่ยวกับตัวฉัน
+    </div>
+
+    <div class="info">
+
+        <div class="section">
+            <strong>👩🏻 ชื่อ</strong><br>
+            ภัคจิรา นงนุช
         </div>
 
-        <div class="info">
-
-            <div class="section">
-                <strong>👩🏻 ชื่อ</strong><br>
-                ภัคจิรา นงนุช
-            </div>
-
-            <div class="section">
-                <strong>🎓 ระดับการศึกษา</strong><br>
-                นักเรียนชั้นมัธยมศึกษาปีที่ 6
-            </div>
-
-            <div class="section">
-                <strong>💡 ความสนใจ</strong><br>
-                บริหารธุรกิจ • การตลาด • เทคโนโลยี
-                • การเรียนรู้สิ่งใหม่ ๆ
-            </div>
-
-            <div class="section">
-                <strong>⭐ ทักษะ</strong><br>
-                การทำงานเป็นทีม • ความรับผิดชอบ
-                • การสื่อสาร • ความคิดสร้างสรรค์
-            </div>
-
-            <div class="section">
-                <strong>🎯 เป้าหมาย</strong><br>
-                ศึกษาต่อด้านบริหารธุรกิจ
-                และพัฒนาความรู้และทักษะ
-                เพื่อเตรียมพร้อมสำหรับการทำงานในอนาคต
-            </div>
-
+        <div class="section">
+            <strong>🎓 ระดับการศึกษา</strong><br>
+            นักเรียนชั้นมัธยมศึกษาปีที่ 6
         </div>
 
-        <a href="portfolio.html" class="next">
-            ➡️ ดูผลงานของฉัน
-        </a>
+        <div class="section">
+            <strong>💡 ความสนใจ</strong><br>
+            บริหารธุรกิจ • การตลาด • เทคโนโลยี
+            • การเรียนรู้สิ่งใหม่ ๆ
+        </div>
+
+        <div class="section">
+            <strong>⭐ ทักษะ</strong><br>
+            การทำงานเป็นทีม • ความรับผิดชอบ
+            • การสื่อสาร • ความคิดสร้างสรรค์
+        </div>
+
+        <div class="section">
+            <strong>🎯 เป้าหมาย</strong><br>
+            ศึกษาต่อด้านบริหารธุรกิจ
+            และพัฒนาความรู้และทักษะ
+            เพื่อเตรียมพร้อมสำหรับการทำงานในอนาคต
+        </div>
 
     </div>
+
+    <a href="portfolio.html" class="next">
+        ➡️ ดูผลงานของฉัน
+    </a>
+
+</div>
 
 </div>
 
