@@ -3,299 +3,365 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>หน้าแรก | My Portfolio</title>
+<title>My Portfolio | ภัคจิรา</title>
 
 <style>
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  font-family:Arial,sans-serif;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 body{
-  min-height:100vh;
-  color:white;
-  overflow-x:hidden;
-  background:#020817;
+    font-family:Arial,sans-serif;
+    color:white;
+    min-height:100vh;
+    overflow-x:hidden;
+    background:#020817;
 }
 
-/* พื้นหลังอวกาศ */
 .space{
-  position:fixed;
-  inset:0;
-  z-index:-10;
-  background:
-    linear-gradient(rgba(0,5,20,.25),rgba(0,10,30,.45)),
-    url("space.jpg") center/cover no-repeat;
-  transform:scale(1.03);
+    position:fixed;
+    inset:0;
+    z-index:-20;
+    background:
+        linear-gradient(rgba(0,8,30,.25),rgba(0,10,35,.6)),
+        url("space.jpg") center/cover no-repeat;
 }
 
-/* ดาว */
-.star{
-  position:absolute;
-  width:3px;
-  height:3px;
-  background:white;
-  border-radius:50%;
-  box-shadow:0 0 8px white,0 0 15px #38bdf8;
-  animation:twinkle 3s infinite;
+.space:after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+        radial-gradient(white 1px,transparent 1px),
+        radial-gradient(#8eeaff 1px,transparent 1px);
+    background-size:90px 90px,140px 140px;
+    background-position:10px 20px,50px 70px;
+    opacity:.45;
 }
 
-.star:nth-child(1){top:10%;left:8%}
-.star:nth-child(2){top:22%;left:20%}
-.star:nth-child(3){top:8%;left:42%}
-.star:nth-child(4){top:35%;left:63%}
-.star:nth-child(5){top:18%;left:82%}
-.star:nth-child(6){top:55%;left:15%}
-.star:nth-child(7){top:67%;left:38%}
-.star:nth-child(8){top:72%;left:70%}
-.star:nth-child(9){top:85%;left:88%}
-.star:nth-child(10){top:45%;left:90%}
-
-@keyframes twinkle{
-  50%{
-    opacity:.3;
-    transform:scale(1.8);
-  }
+/* SOLAR SYSTEM */
+.solar{
+    position:fixed;
+    width:620px;
+    height:620px;
+    right:-80px;
+    top:50%;
+    transform:translateY(-50%);
+    perspective:1000px;
+    z-index:-5;
 }
 
-/* ลูกแสง 3D */
-.orb{
-  position:absolute;
-  border-radius:50%;
-  filter:blur(1px);
-  opacity:.6;
+.sun{
+    position:absolute;
+    width:95px;
+    height:95px;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    border-radius:50%;
+    background:radial-gradient(
+        circle,
+        #fff 5%,
+        #ffe66d 30%,
+        #ff9d00 65%,
+        #ff5e00
+    );
+    box-shadow:
+        0 0 25px #fff,
+        0 0 60px #ffb300,
+        0 0 120px #ff7b00;
+    animation:sunPulse 3s infinite alternate;
 }
 
-.orb1{
-  width:220px;
-  height:220px;
-  top:5%;
-  left:-70px;
-  background:radial-gradient(circle at 30% 30%,white,#38bdf8,#006eff,transparent 70%);
-  box-shadow:0 0 70px #008cff;
-  animation:move1 10s infinite ease-in-out;
+@keyframes sunPulse{
+    from{
+        box-shadow:
+            0 0 25px #fff,
+            0 0 60px #ffb300,
+            0 0 100px #ff7b00;
+    }
+    to{
+        box-shadow:
+            0 0 35px #fff,
+            0 0 80px #ffcc33,
+            0 0 140px #ff7b00;
+    }
 }
 
-.orb2{
-  width:280px;
-  height:280px;
-  right:-100px;
-  top:40%;
-  background:radial-gradient(circle at 30% 30%,white,#60a5fa,#006eff,transparent 70%);
-  box-shadow:0 0 80px #008cff;
-  animation:move2 12s infinite ease-in-out;
+.orbit{
+    position:absolute;
+    left:50%;
+    top:50%;
+    border:1px solid rgba(150,230,255,.25);
+    border-radius:50%;
+    transform:translate(-50%,-50%);
 }
 
-@keyframes move1{
-  50%{transform:translate(80px,70px) scale(1.15)}
+.o1{width:150px;height:150px}
+.o2{width:220px;height:220px}
+.o3{width:300px;height:300px}
+.o4{width:390px;height:390px}
+.o5{width:480px;height:480px}
+.o6{width:570px;height:570px}
+
+.planet{
+    position:absolute;
+    border-radius:50%;
+    left:50%;
+    top:50%;
 }
 
-@keyframes move2{
-  50%{transform:translate(-80px,-60px) scale(.9)}
+.p1{
+    width:13px;
+    height:13px;
+    background:#aaa;
+    box-shadow:0 0 10px #ddd;
+    animation:orbit1 4s linear infinite;
 }
 
-/* เมนู */
+.p2{
+    width:19px;
+    height:19px;
+    background:#e5a85c;
+    box-shadow:0 0 12px #ffc878;
+    animation:orbit2 7s linear infinite;
+}
+
+.p3{
+    width:23px;
+    height:23px;
+    background:#3498db;
+    box-shadow:0 0 15px #42caff;
+    animation:orbit3 10s linear infinite;
+}
+
+.p4{
+    width:17px;
+    height:17px;
+    background:#d85b4d;
+    box-shadow:0 0 12px #ff7868;
+    animation:orbit4 14s linear infinite;
+}
+
+.p5{
+    width:42px;
+    height:42px;
+    background:#d5a66b;
+    box-shadow:0 0 15px #f0c58b;
+    animation:orbit5 20s linear infinite;
+}
+
+.p6{
+    width:36px;
+    height:36px;
+    background:#d8c28f;
+    box-shadow:0 0 15px #fff0b0;
+    animation:orbit6 27s linear infinite;
+}
+
+@keyframes orbit1{
+    from{
+        transform:rotate(0deg) translateX(75px) rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg) translateX(75px) rotate(-360deg);
+    }
+}
+
+@keyframes orbit2{
+    from{
+        transform:rotate(0deg) translateX(110px) rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg) translateX(110px) rotate(-360deg);
+    }
+}
+
+@keyframes orbit3{
+    from{
+        transform:rotate(0deg) translateX(150px) rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg) translateX(150px) rotate(-360deg);
+    }
+}
+
+@keyframes orbit4{
+    from{
+        transform:rotate(0deg) translateX(195px) rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg) translateX(195px) rotate(-360deg);
+    }
+}
+
+@keyframes orbit5{
+    from{
+        transform:rotate(0deg) translateX(240px) rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg) translateX(240px) rotate(-360deg);
+    }
+}
+
+@keyframes orbit6{
+    from{
+        transform:rotate(0deg) translateX(285px) rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg) translateX(285px) rotate(-360deg);
+    }
+}
+
+/* NAV */
 nav{
-  padding:20px;
-  text-align:center;
-  background:rgba(0,8,25,.65);
-  backdrop-filter:blur(18px);
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    padding:25px;
+    flex-wrap:wrap;
 }
 
 nav a{
-  color:white;
-  text-decoration:none;
-  font-weight:bold;
-  margin:0 12px;
-  transition:.3s;
+    color:white;
+    text-decoration:none;
+    padding:10px 18px;
+    border-radius:20px;
+    background:rgba(0,80,130,.35);
+    border:1px solid rgba(150,230,255,.25);
+    transition:.3s;
 }
 
 nav a:hover{
-  color:#67e8f9;
-  text-shadow:0 0 20px #00c8ff;
+    background:rgba(0,180,255,.35);
+    box-shadow:0 0 20px #00cfff;
 }
 
-/* กล่อง */
+/* CONTENT */
 .container{
-  max-width:1000px;
-  margin:60px auto;
-  padding:20px;
-}
-
-.hero{
-  text-align:center;
-  padding:50px 20px;
-}
-
-.profile{
-  width:180px;
-  height:180px;
-  object-fit:cover;
-  border-radius:50%;
-  border:4px solid #67e8f9;
-  box-shadow:0 0 30px #00c8ff,0 0 70px #006eff;
-  animation:float 5s infinite ease-in-out;
-}
-
-@keyframes float{
-  50%{transform:translateY(-15px) rotateY(8deg)}
-}
-
-h1{
-  margin-top:25px;
-  color:#b9f6ff;
-  font-size:44px;
-  text-shadow:0 0 15px #00c8ff,0 0 35px #006eff;
-}
-
-h2{
-  color:#67e8f9;
-  margin:15px 0;
-}
-
-p{
-  color:#e0f7ff;
-  line-height:1.8;
-}
-
-.button{
-  display:block;
-  width:max-content;
-  margin:30px auto;
-  padding:15px 30px;
-  color:white;
-  text-decoration:none;
-  background:linear-gradient(135deg,#005eff,#00a8ff);
-  border-radius:35px;
-  box-shadow:0 0 20px #00aaff66;
-  transition:.4s;
-}
-
-.button:hover{
-  transform:translateY(-7px) scale(1.06);
-  box-shadow:0 0 35px #00d9ff;
-}
-
-.cards{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:25px;
+    min-height:calc(100vh - 90px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:40px 20px;
 }
 
 .card{
-  padding:35px;
-  background:rgba(0,40,80,.65);
-  backdrop-filter:blur(15px);
-  border:1px solid rgba(150,230,255,.25);
-  border-radius:28px;
-  box-shadow:0 30px 60px rgba(0,0,0,.5);
-  transition:.5s;
+    width:min(700px,95%);
+    padding:50px;
+    text-align:center;
+    background:rgba(0,25,60,.68);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(150,230,255,.3);
+    border-radius:28px;
+    box-shadow:0 30px 70px rgba(0,0,0,.55);
 }
 
-.card:hover{
-  transform:perspective(1000px) rotateX(5deg) rotateY(-5deg) translateY(-10px);
-  box-shadow:0 40px 80px #006eff55;
+h1{
+    font-size:45px;
+    margin-bottom:15px;
+    text-shadow:0 0 25px #00d9ff;
 }
 
-footer{
-  margin-top:80px;
-  padding:30px;
-  text-align:center;
-  background:rgba(0,5,20,.8);
-  color:#9eeaff;
+h2{
+    color:#7eeaff;
+    margin-bottom:20px;
+}
+
+p{
+    line-height:1.8;
+    color:#dcefff;
+}
+
+button{
+    margin-top:30px;
+    padding:14px 28px;
+    border:none;
+    border-radius:30px;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    background:linear-gradient(90deg,#0077ff,#00d9ff);
+    box-shadow:0 0 25px rgba(0,210,255,.5);
+    transition:.3s;
+}
+
+button:hover{
+    transform:translateY(-4px) scale(1.03);
+    box-shadow:0 0 35px #00d9ff;
 }
 
 @media(max-width:700px){
-  nav a{
-    display:inline-block;
-    margin:6px;
-    font-size:14px;
-  }
+    .solar{
+        width:400px;
+        height:400px;
+        right:-170px;
+        opacity:.55;
+    }
 
-  .cards{
-    grid-template-columns:1fr;
-  }
+    h1{
+        font-size:32px;
+    }
 
-  h1{
-    font-size:32px;
-  }
+    .card{
+        padding:30px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<div class="space">
+<div class="space"></div>
 
-  <span class="star"></span>
-  <span class="star"></span>
-  <span class="star"></span>
-  <span class="star"></span>
-  <span class="star"></span>
-  <span class="star"></span>
-  <span class="star"></span>
-  <span class="star"></span>
-  <span class="star"></span>
-  <span class="star"></span>
+<div class="solar">
 
-  <div class="orb orb1"></div>
-  <div class="orb orb2"></div>
+    <div class="orbit o1"></div>
+    <div class="orbit o2"></div>
+    <div class="orbit o3"></div>
+    <div class="orbit o4"></div>
+    <div class="orbit o5"></div>
+    <div class="orbit o6"></div>
+
+    <div class="sun"></div>
+
+    <div class="planet p1"></div>
+    <div class="planet p2"></div>
+    <div class="planet p3"></div>
+    <div class="planet p4"></div>
+    <div class="planet p5"></div>
+    <div class="planet p6"></div>
 
 </div>
 
 <nav>
-  <a href="index.html">🏠 หน้าแรก</a>
-  <a href="about.html">👩 แนะนำตัว</a>
-  <a href="portfolio.html">🏆 ผลงาน</a>
-  <a href="contact.html">📞 ติดต่อ</a>
+    <a href="index.html">หน้าแรก</a>
+    <a href="about.html">เกี่ยวกับฉัน</a>
+    <a href="portfolio.html">ผลงาน</a>
+    <a href="contact.html">ติดต่อ</a>
 </nav>
 
 <div class="container">
-
-  <section class="hero">
-
-    <img src="profile.jpg" class="profile">
-
-    <h1>สวัสดีค่ะ 👋</h1>
-
-    <h2>ภัคจิรา นงนุช</h2>
-
-    <p>นักเรียนชั้นมัธยมศึกษาปีที่ 6</p>
-
-    <a href="about.html" class="button">
-      ✨ รู้จักฉันมากขึ้น
-    </a>
-
-  </section>
-
-  <div class="cards">
-
     <div class="card">
-      <h2>🌟 Welcome</h2>
-      <p>
-        ยินดีต้อนรับเข้าสู่เว็บไซต์
-        แนะนำตัวและ Portfolio
-        ของภัคจิรา นงนุช
-      </p>
+
+        <h2>WELCOME TO MY PORTFOLIO</h2>
+
+        <h1>นางสาวภัคจิรา นงนุช</h1>
+
+        <p>นักเรียนชั้นมัธยมศึกษาปีที่ 6</p>
+
+        <p>
+            ยินดีต้อนรับเข้าสู่เว็บไซต์แนะนำตัวของฉัน 🌌
+        </p>
+
+        <button onclick="location.href='about.html'">
+            ✨ รู้จักฉันมากขึ้น
+        </button>
+
     </div>
-
-    <div class="card">
-      <h2>🎯 Future Goal</h2>
-      <p>
-        มีความสนใจศึกษาต่อด้านบริหารธุรกิจ
-        และต้องการพัฒนาทักษะเพื่อใช้ในการทำงานในอนาคต
-      </p>
-    </div>
-
-  </div>
-
 </div>
-
-<footer>
-  ✦ Welcome to my universe ✦
-</footer>
 
 </body>
 </html>
