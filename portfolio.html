@@ -19,7 +19,6 @@ body{
     overflow:hidden;
 }
 
-/* พื้นหลัง */
 .space{
     position:fixed;
     inset:0;
@@ -40,11 +39,9 @@ body{
         radial-gradient(#8eeaff 1px,transparent 1.5px);
 
     background-size:100px 100px,160px 160px;
-
     opacity:.4;
 }
 
-/* เมนู */
 nav{
     position:relative;
     z-index:100;
@@ -54,35 +51,46 @@ nav{
     display:flex;
     justify-content:center;
     align-items:center;
-    gap:20px;
+    gap:12px;
 
-    background:rgba(0,5,20,.65);
+    background:rgba(0,5,20,.55);
     backdrop-filter:blur(12px);
 
-    border-bottom:1px solid rgba(100,220,255,.35);
+    border-bottom:1px solid rgba(100,220,255,.25);
 }
 
 nav a{
     color:white;
     text-decoration:none;
 
-    padding:10px 18px;
+    padding:10px 20px;
 
     border-radius:25px;
 
-    transition:.3s;
+    background:rgba(0,60,110,.35);
+    border:1px solid rgba(100,220,255,.35);
+
+    transition:.25s;
 }
 
 nav a:hover{
-    background:rgba(0,200,255,.2);
-    color:#7eeaff;
-    box-shadow:0 0 15px #00cfff;
+    transform:translateY(-3px) scale(1.04);
+    background:rgba(0,150,220,.35);
+    color:#8eeaff;
+    box-shadow:0 0 15px rgba(0,210,255,.7);
 }
 
-/* ระบบสุริยะ */
+nav a:active{
+    transform:scale(.90);
+    box-shadow:
+        0 0 30px #00d9ff,
+        inset 0 0 15px rgba(255,255,255,.3);
+}
+
+/* ===== ระบบสุริยะ ===== */
+
 .solar{
     position:fixed;
-
     width:720px;
     height:720px;
 
@@ -110,7 +118,6 @@ nav a:hover{
     top:50%;
 
     transform:translate(-50%,-50%);
-
     border-radius:50%;
 
     background:radial-gradient(
@@ -164,22 +171,19 @@ nav a:hover{
 }
 
 .p1{
-    width:13px;
-    height:13px;
+    width:13px;height:13px;
     background:#aaa;
     animation:o1 5s linear infinite;
 }
 
 .p2{
-    width:19px;
-    height:19px;
+    width:19px;height:19px;
     background:#d6a96c;
     animation:o2 8s linear infinite;
 }
 
 .p3{
-    width:25px;
-    height:25px;
+    width:25px;height:25px;
 
     background:
         radial-gradient(circle at 30% 30%,
@@ -191,15 +195,13 @@ nav a:hover{
 }
 
 .p4{
-    width:19px;
-    height:19px;
+    width:19px;height:19px;
     background:#d9533d;
     animation:o4 15s linear infinite;
 }
 
 .p5{
-    width:43px;
-    height:43px;
+    width:43px;height:43px;
 
     background:
         linear-gradient(
@@ -213,11 +215,8 @@ nav a:hover{
 }
 
 .p6{
-    width:35px;
-    height:35px;
-
+    width:35px;height:35px;
     background:#d9bd7c;
-
     animation:o6 26s linear infinite;
 }
 
@@ -270,7 +269,8 @@ nav a:hover{
     to{transform:rotate(660deg) translateX(315px);}
 }
 
-/* เนื้อหา */
+/* ===== เนื้อหา ===== */
+
 .main{
     position:relative;
     z-index:10;
@@ -291,18 +291,19 @@ nav a:hover{
 
     text-align:center;
 
-    background:rgba(0,15,45,.84);
-    backdrop-filter:blur(14px);
+    background:rgba(0,15,45,.42);
+    backdrop-filter:blur(7px);
 
-    border:1px solid rgba(100,220,255,.45);
+    border:1px solid rgba(100,220,255,.35);
     border-radius:30px;
 
     box-shadow:
-        0 0 35px rgba(0,150,255,.3);
+        0 0 25px rgba(0,150,255,.18);
 }
 
 .card h1{
     font-size:40px;
+
     color:#69e8ff;
 
     text-shadow:
@@ -321,7 +322,7 @@ nav a:hover{
 .work{
     width:30%;
 
-    background:rgba(0,70,120,.3);
+    background:rgba(0,70,120,.25);
 
     border:1px solid rgba(100,220,255,.3);
 
@@ -329,7 +330,7 @@ nav a:hover{
 
     overflow:hidden;
 
-    transition:.3s;
+    transition:.25s;
 }
 
 .work:hover{
@@ -378,8 +379,25 @@ nav a:hover{
 
     font-weight:bold;
 
+    box-shadow:0 0 20px rgba(0,210,255,.55);
+
+    transition:.25s;
+}
+
+.next:hover{
+    transform:translateY(-4px) scale(1.04);
+
     box-shadow:
-        0 0 20px rgba(0,210,255,.6);
+        0 0 30px #00d9ff,
+        0 0 50px rgba(0,150,255,.5);
+}
+
+.next:active{
+    transform:scale(.90);
+
+    box-shadow:
+        0 0 45px #fff,
+        0 0 70px #00d9ff;
 }
 
 @media(max-width:800px){
@@ -390,12 +408,11 @@ nav a:hover{
 
     nav{
         flex-wrap:wrap;
-        gap:5px;
     }
 
     nav a{
         font-size:13px;
-        padding:8px 10px;
+        padding:8px 12px;
     }
 
     .works{
@@ -422,7 +439,6 @@ nav a:hover{
 
 <div class="space"></div>
 
-<!-- ระบบสุริยะ 3D -->
 <div class="solar">
 
     <div class="orbit o1"></div>
