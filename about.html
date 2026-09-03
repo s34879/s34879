@@ -1,237 +1,117 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>About Me</title>
 
-<style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  font-family:Arial,sans-serif;
-}
-
-body{
-  min-height:100vh;
-  color:white;
-  background:linear-gradient(135deg,#00152f,#003b73,#0077b6,#00152f);
-  overflow-x:hidden;
-}
-
-.background{
-  position:fixed;
-  inset:0;
-  overflow:hidden;
-  z-index:-1;
-}
-
-.orb{
-  position:absolute;
-  border-radius:50%;
-  filter:blur(2px);
-  opacity:.6;
-  animation:float 8s ease-in-out infinite;
-}
-
-.orb1{
-  width:180px;
-  height:180px;
-  background:radial-gradient(circle at 30% 30%,white,#38bdf8);
-  top:10%;
-  left:5%;
-}
-
-.orb2{
-  width:250px;
-  height:250px;
-  background:radial-gradient(circle at 30% 30%,white,#0ea5e9);
-  right:5%;
-  top:25%;
-  animation-delay:2s;
-}
-
-.orb3{
-  width:130px;
-  height:130px;
-  background:radial-gradient(circle at 30% 30%,white,#60a5fa);
-  bottom:10%;
-  left:40%;
-  animation-delay:4s;
-}
-
-@keyframes float{
-  0%,100%{
-    transform:translate3d(0,0,0);
-  }
-
-  50%{
-    transform:translate3d(30px,-40px,50px) rotate(20deg);
-  }
-}
-
-nav{
-  padding:20px;
-  text-align:center;
-  background:rgba(0,20,45,.65);
-  backdrop-filter:blur(15px);
-  border-bottom:1px solid rgba(100,210,255,.2);
-}
-
-nav a{
-  color:#dff6ff;
-  text-decoration:none;
-  font-weight:bold;
-  margin:0 12px;
-  transition:.3s;
-}
-
-nav a:hover{
-  color:#38d9ff;
-  text-shadow:0 0 15px #00c8ff;
-}
-
-.container{
-  max-width:900px;
-  margin:70px auto;
-  padding:20px;
-}
-
-.card{
-  padding:35px;
-  margin-bottom:25px;
-  background:rgba(0,30,65,.6);
-  backdrop-filter:blur(15px);
-  border:1px solid rgba(130,220,255,.25);
-  border-radius:25px;
-  box-shadow:0 25px 55px rgba(0,50,100,.4);
-  transition:.5s;
-}
-
-.card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 35px 70px rgba(0,150,255,.35);
-}
-
-h1{
-  color:#67e8f9;
-  margin-bottom:20px;
-  text-shadow:0 0 15px #06b6d4;
-}
-
-h2{
-  color:#67e8f9;
-  margin-bottom:15px;
-}
-
-p,li{
-  color:#d8f6ff;
-  line-height:1.8;
-}
-
-ul{
-  padding-left:25px;
-}
-
-.next-button{
-  display:block;
-  width:max-content;
-  margin:35px auto 0;
-  padding:15px 30px;
-  color:white;
-  text-decoration:none;
-  background:linear-gradient(135deg,#0077b6,#00b4d8);
-  border:1px solid rgba(180,240,255,.4);
-  border-radius:30px;
-  box-shadow:0 0 15px rgba(0,200,255,.3);
-  transition:.4s;
-}
-
-.next-button:hover{
-  transform:translateY(-7px) scale(1.06);
-  box-shadow:0 0 25px #00d9ff,0 0 45px #0077b6;
-}
-
-footer{
-  margin-top:80px;
-  padding:30px;
-  text-align:center;
-  background:rgba(0,15,35,.8);
-  color:#9eeaff;
-}
-
-@media(max-width:600px){
-
-  nav a{
-    display:inline-block;
-    margin:5px 7px;
-    font-size:14px;
-  }
-
-  .container{
-    margin-top:50px;
-  }
-
-  .card{
-    padding:30px 20px;
-  }
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="background">
+<div class="space">
+
+  <div class="stars">
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+  </div>
+
   <div class="orb orb1"></div>
   <div class="orb orb2"></div>
   <div class="orb orb3"></div>
+
 </div>
 
 <nav>
+
   <a href="index.html">🏠 หน้าแรก</a>
+
   <a href="about.html">👩 แนะนำตัว</a>
+
   <a href="portfolio.html">🏆 ผลงาน</a>
+
   <a href="contact.html">📞 ติดต่อ</a>
+
 </nav>
 
 <div class="container">
 
   <div class="card">
+
     <h1>👩 About Me</h1>
 
+    <br>
+
     <p>
-      สวัสดีค่ะ ชื่อ ภัคจิรา นงนุช
+      สวัสดีค่ะ ดิฉันชื่อ นางสาวภัคจิรา นงนุช
       ปัจจุบันเป็นนักเรียนชั้นมัธยมศึกษาปีที่ 6
-      มีความสนใจด้านบริหารธุรกิจ การตลาด และเทคโนโลยี
+      มีความสนใจด้านบริหารธุรกิจ การตลาด
+      และเทคโนโลยี
     </p>
+
   </div>
 
   <div class="card">
+
     <h2>💡 My Interests</h2>
 
+    <br>
+
     <ul>
+
       <li>บริหารธุรกิจ</li>
+
       <li>การตลาด</li>
+
       <li>เทคโนโลยี</li>
+
       <li>การทำงานเป็นทีม</li>
+
       <li>การเรียนรู้สิ่งใหม่ ๆ</li>
+
     </ul>
+
   </div>
 
   <div class="card">
+
     <h2>⭐ My Skills</h2>
 
+    <br>
+
     <ul>
+
       <li>การทำงานเป็นทีม</li>
+
       <li>ความรับผิดชอบ</li>
+
       <li>การสื่อสาร</li>
+
       <li>ความคิดสร้างสรรค์</li>
+
     </ul>
+
   </div>
 
-  <!-- ปุ่มไปหน้าที่ 3 -->
-  <a href="portfolio.html" class="next-button">
+  <!-- หน้า 2 ไปหน้า 3 -->
+
+  <a
+    href="portfolio.html"
+    class="next-button"
+  >
     ➡️ ดูหน้าถัดไป
   </a>
 
