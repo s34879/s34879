@@ -62,8 +62,13 @@ body{
 }
 
 @keyframes float{
-  0%,100%{transform:translate3d(0,0,0);}
-  50%{transform:translate3d(30px,-40px,50px) rotate(20deg);}
+  0%,100%{
+    transform:translate3d(0,0,0);
+  }
+
+  50%{
+    transform:translate3d(30px,-40px,50px) rotate(20deg);
+  }
 }
 
 nav{
@@ -71,6 +76,7 @@ nav{
   text-align:center;
   background:rgba(0,20,45,.65);
   backdrop-filter:blur(15px);
+  border-bottom:1px solid rgba(100,210,255,.2);
 }
 
 nav a{
@@ -78,6 +84,7 @@ nav a{
   text-decoration:none;
   font-weight:bold;
   margin:0 12px;
+  transition:.3s;
 }
 
 nav a:hover{
@@ -127,21 +134,23 @@ ul{
   padding-left:25px;
 }
 
-.home-button{
+.next-button{
   display:block;
   width:max-content;
-  margin:30px auto 0;
+  margin:35px auto 0;
   padding:15px 30px;
   color:white;
   text-decoration:none;
   background:linear-gradient(135deg,#0077b6,#00b4d8);
+  border:1px solid rgba(180,240,255,.4);
   border-radius:30px;
+  box-shadow:0 0 15px rgba(0,200,255,.3);
   transition:.4s;
 }
 
-.home-button:hover{
+.next-button:hover{
   transform:translateY(-7px) scale(1.06);
-  box-shadow:0 0 25px #00d9ff;
+  box-shadow:0 0 25px #00d9ff,0 0 45px #0077b6;
 }
 
 footer{
@@ -153,10 +162,19 @@ footer{
 }
 
 @media(max-width:600px){
+
   nav a{
     display:inline-block;
     margin:5px 7px;
     font-size:14px;
+  }
+
+  .container{
+    margin-top:50px;
+  }
+
+  .card{
+    padding:30px 20px;
   }
 }
 </style>
@@ -181,8 +199,9 @@ footer{
 
   <div class="card">
     <h1>👩 About Me</h1>
+
     <p>
-      สวัสดีค่ะ ดิฉันชื่อ นางสาวภัคจิรา นงนุช
+      สวัสดีค่ะ ชื่อ ภัคจิรา นงนุช
       ปัจจุบันเป็นนักเรียนชั้นมัธยมศึกษาปีที่ 6
       มีความสนใจด้านบริหารธุรกิจ การตลาด และเทคโนโลยี
     </p>
@@ -190,6 +209,7 @@ footer{
 
   <div class="card">
     <h2>💡 My Interests</h2>
+
     <ul>
       <li>บริหารธุรกิจ</li>
       <li>การตลาด</li>
@@ -201,6 +221,7 @@ footer{
 
   <div class="card">
     <h2>⭐ My Skills</h2>
+
     <ul>
       <li>การทำงานเป็นทีม</li>
       <li>ความรับผิดชอบ</li>
@@ -209,8 +230,9 @@ footer{
     </ul>
   </div>
 
-  <a href="index.html" class="home-button">
-    🏠 กลับหน้าแรก
+  <!-- ปุ่มไปหน้าที่ 3 -->
+  <a href="portfolio.html" class="next-button">
+    ➡️ ดูหน้าถัดไป
   </a>
 
 </div>
