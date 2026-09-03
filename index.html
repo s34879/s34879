@@ -3,11 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Portfolio | นางสาวภัคจิรา นงนุช</title>
 
 <style>
-
 *{
     margin:0;
     padding:0;
@@ -21,24 +19,16 @@ body{
     overflow:hidden;
 }
 
-
-/* ================= พื้นหลังอวกาศ ================= */
-
+/* ===== พื้นหลังอวกาศ ===== */
 .space{
     position:fixed;
     inset:0;
     z-index:-20;
 
     background:
-        linear-gradient(
-            rgba(0,5,25,.20),
-            rgba(0,10,40,.30)
-        ),
+        linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.15)),
         url("space.jpg") center/cover no-repeat;
 }
-
-
-/* ดาวเพิ่มเติม */
 
 .space::after{
     content:"";
@@ -46,154 +36,104 @@ body{
     inset:0;
 
     background-image:
-        radial-gradient(
-            white 1px,
-            transparent 1.5px
-        ),
-        radial-gradient(
-            #8eeaff 1px,
-            transparent 1.5px
-        );
+        radial-gradient(white 1px,transparent 1.5px),
+        radial-gradient(#8eeaff 1px,transparent 1.5px);
 
-    background-size:
-        95px 95px,
-        145px 145px;
-
-    opacity:.55;
+    background-size:100px 100px,160px 160px;
+    opacity:.35;
 }
 
-
-/* ================= เมนู ================= */
-
+/* ===== เมนู ===== */
 nav{
     position:relative;
     z-index:100;
-
-    height:75px;
+    min-height:75px;
 
     display:flex;
     justify-content:center;
     align-items:center;
+    gap:20px;
 
-    gap:25px;
-
-    background:rgba(0,8,30,.68);
-
+    background:rgba(0,5,20,.65);
     backdrop-filter:blur(12px);
 
-    border-bottom:
-        1px solid rgba(100,220,255,.3);
+    border-bottom:1px solid rgba(100,220,255,.3);
 }
 
 nav a{
     color:white;
     text-decoration:none;
-
     padding:10px 18px;
-
     border-radius:25px;
-
-    font-size:16px;
-
     transition:.3s;
 }
 
 nav a:hover{
     background:rgba(0,200,255,.2);
-
     color:#7eeaff;
-
-    box-shadow:
-        0 0 18px rgba(0,200,255,.5);
+    box-shadow:0 0 15px #00cfff;
 }
 
-
-/* ================= ระบบสุริยะ ================= */
-
+/* ===== ระบบสุริยะ ===== */
 .solar{
     position:fixed;
-
     width:700px;
     height:700px;
-
     right:-120px;
     top:55%;
-
     transform:translateY(-50%);
-
     z-index:1;
-
     pointer-events:none;
 }
 
-
-/* ดวงอาทิตย์ */
-
 .sun{
     position:absolute;
-
     width:105px;
     height:105px;
-
     left:50%;
     top:50%;
-
     transform:translate(-50%,-50%);
-
     border-radius:50%;
 
-    background:
-        radial-gradient(
-            circle,
-            #fff 5%,
-            #fff7a0 25%,
-            #ffd21c 50%,
-            #ff8500 75%,
-            #ff4500 100%
-        );
+    background:radial-gradient(
+        circle,
+        #fff 5%,
+        #fff7a0 25%,
+        #ffd21c 50%,
+        #ff8500 75%,
+        #ff4500 100%
+    );
 
     box-shadow:
         0 0 30px #fff,
         0 0 65px #ffd21c,
         0 0 120px #ff9000;
 
-    animation:sunGlow 3s infinite alternate;
+    animation:glow 3s infinite alternate;
 }
 
-@keyframes sunGlow{
-
+@keyframes glow{
     from{
         box-shadow:
-            0 0 25px #fff,
-            0 0 55px #ffd21c,
-            0 0 100px #ff9000;
+        0 0 25px #fff,
+        0 0 55px #ffd21c,
+        0 0 100px #ff9000;
     }
-
     to{
         box-shadow:
-            0 0 40px #fff,
-            0 0 80px #ffd21c,
-            0 0 150px #ff9000;
+        0 0 40px #fff,
+        0 0 80px #ffd21c,
+        0 0 150px #ff9000;
     }
 }
-
-
-/* วงโคจร */
 
 .orbit{
     position:absolute;
-
     left:50%;
     top:50%;
-
-    border:
-        1px solid rgba(100,220,255,.35);
-
+    border:1px solid rgba(100,220,255,.35);
     border-radius:50%;
-
-    transform:
-        translate(-50%,-50%)
-        rotateX(65deg);
+    transform:translate(-50%,-50%) rotateX(65deg);
 }
 
 .o1{width:160px;height:160px;}
@@ -203,9 +143,6 @@ nav a:hover{
 .o5{width:520px;height:520px;}
 .o6{width:630px;height:630px;}
 
-
-/* ดาวเคราะห์ */
-
 .planet{
     position:absolute;
     left:50%;
@@ -214,147 +151,80 @@ nav a:hover{
 }
 
 .p1{
-    width:13px;
-    height:13px;
+    width:13px;height:13px;
     background:#aaa;
-    animation:orbit1 5s linear infinite;
+    animation:o1 5s linear infinite;
 }
 
 .p2{
-    width:19px;
-    height:19px;
+    width:19px;height:19px;
     background:#d6a96c;
-    box-shadow:0 0 10px #d6a96c;
-    animation:orbit2 8s linear infinite;
+    animation:o2 8s linear infinite;
 }
 
 .p3{
-    width:24px;
-    height:24px;
-
-    background:
-        radial-gradient(
-            circle at 30% 30%,
-            #8df3ff,
-            #087cff 55%,
-            #063c9e
-        );
-
+    width:24px;height:24px;
+    background:radial-gradient(circle at 30% 30%,#8df3ff,#087cff 55%,#063c9e);
     box-shadow:0 0 15px #00cfff;
-
-    animation:orbit3 11s linear infinite;
+    animation:o3 11s linear infinite;
 }
 
 .p4{
-    width:19px;
-    height:19px;
+    width:19px;height:19px;
     background:#d9533d;
-    animation:orbit4 15s linear infinite;
+    animation:o4 15s linear infinite;
 }
 
 .p5{
-    width:43px;
-    height:43px;
-
-    background:
-        linear-gradient(
-            #d8b58c,
-            #8d684d,
-            #d8c09b,
-            #9b7455
-        );
-
-    animation:orbit5 20s linear infinite;
+    width:43px;height:43px;
+    background:linear-gradient(#d8b58c,#8d684d,#d8c09b,#9b7455);
+    animation:o5 20s linear infinite;
 }
 
 .p6{
-    width:35px;
-    height:35px;
+    width:35px;height:35px;
     background:#d9bd7c;
-    animation:orbit6 26s linear infinite;
+    animation:o6 26s linear infinite;
 }
 
 .p6::after{
     content:"";
-
     position:absolute;
-
     width:60px;
     height:15px;
-
     left:50%;
     top:50%;
-
-    transform:
-        translate(-50%,-50%)
-        rotate(-15deg);
-
-    border:
-        3px solid rgba(230,210,160,.8);
-
+    transform:translate(-50%,-50%) rotate(-15deg);
+    border:3px solid rgba(230,210,160,.8);
     border-radius:50%;
 }
 
-
-/* ================= การหมุน ================= */
-
-@keyframes orbit1{
-    from{
-        transform:rotate(0deg) translateX(80px);
-    }
-    to{
-        transform:rotate(360deg) translateX(80px);
-    }
+@keyframes o1{
+    from{transform:rotate(0deg) translateX(80px);}
+    to{transform:rotate(360deg) translateX(80px);}
+}
+@keyframes o2{
+    from{transform:rotate(60deg) translateX(120px);}
+    to{transform:rotate(420deg) translateX(120px);}
+}
+@keyframes o3{
+    from{transform:rotate(120deg) translateX(160px);}
+    to{transform:rotate(480deg) translateX(160px);}
+}
+@keyframes o4{
+    from{transform:rotate(180deg) translateX(205px);}
+    to{transform:rotate(540deg) translateX(205px);}
+}
+@keyframes o5{
+    from{transform:rotate(230deg) translateX(260px);}
+    to{transform:rotate(590deg) translateX(260px);}
+}
+@keyframes o6{
+    from{transform:rotate(300deg) translateX(315px);}
+    to{transform:rotate(660deg) translateX(315px);}
 }
 
-@keyframes orbit2{
-    from{
-        transform:rotate(60deg) translateX(120px);
-    }
-    to{
-        transform:rotate(420deg) translateX(120px);
-    }
-}
-
-@keyframes orbit3{
-    from{
-        transform:rotate(120deg) translateX(160px);
-    }
-    to{
-        transform:rotate(480deg) translateX(160px);
-    }
-}
-
-@keyframes orbit4{
-    from{
-        transform:rotate(180deg) translateX(205px);
-    }
-    to{
-        transform:rotate(540deg) translateX(205px);
-    }
-}
-
-@keyframes orbit5{
-    from{
-        transform:rotate(230deg) translateX(260px);
-    }
-    to{
-        transform:rotate(590deg) translateX(260px);
-    }
-}
-
-@keyframes orbit6{
-    from{
-        transform:rotate(300deg) translateX(315px);
-    }
-    to{
-        transform:rotate(660deg) translateX(315px);
-    }
-}
-
-
-/* ================= เนื้อหาหลัก ================= */
-
+/* ===== เนื้อหา ===== */
 .main{
     position:relative;
     z-index:10;
@@ -365,163 +235,108 @@ nav a:hover{
     justify-content:center;
     align-items:center;
 
-    padding:30px 20px;
+    padding:25px;
 }
 
-.content{
+.card{
     width:680px;
+    padding:32px 40px;
 
     text-align:center;
 
-    padding:35px 45px;
+    background:rgba(0,20,55,.82);
+    backdrop-filter:blur(14px);
 
-    background:rgba(0,20,55,.80);
-
-    backdrop-filter:blur(12px);
-
-    border:
-        1px solid rgba(100,220,255,.45);
-
+    border:1px solid rgba(100,220,255,.45);
     border-radius:30px;
 
-    box-shadow:
-        0 0 35px rgba(0,150,255,.25);
+    box-shadow:0 0 35px rgba(0,150,255,.3);
 }
 
-
-/* ================= WELCOME ================= */
-
 .welcome{
-    font-size:38px;
+    font-size:36px;
     font-weight:900;
-
     color:#69e8ff;
 
     text-shadow:
         0 0 10px #00d9ff,
-        0 0 25px rgba(0,200,255,.7);
-
-    margin-bottom:20px;
-}
-
-
-/* ================= รูป ================= */
-
-.profile{
-    width:145px;
-    height:145px;
-
-    object-fit:cover;
-
-    border-radius:50%;
-
-    border:
-        4px solid #7cecff;
-
-    box-shadow:
-        0 0 20px rgba(0,210,255,.8),
-        0 0 45px rgba(0,150,255,.4);
-
-    margin-bottom:15px;
-}
-
-
-/* ================= ชื่อ ================= */
-
-.name h1{
-    font-size:42px;
-
-    margin-bottom:6px;
-
-    text-shadow:
-        0 0 10px #00d9ff;
-}
-
-.name p{
-    font-size:19px;
-
-    color:#d9f8ff;
-
-    margin-bottom:20px;
-}
-
-
-/* ================= สร้างเว็บนี้มาเพื่อบอกอะไร ================= */
-
-.intro{
-
-    font-size:18px;
-
-    line-height:1.8;
-
-    color:#effcff;
+        0 0 25px #008cff;
 
     margin-bottom:18px;
 }
 
-.intro strong{
+.profile{
+    width:130px;
+    height:130px;
+    object-fit:cover;
+    border-radius:50%;
+
+    border:4px solid #7cecff;
+
+    box-shadow:
+        0 0 20px #00d9ff,
+        0 0 40px rgba(0,150,255,.5);
+
+    margin-bottom:12px;
+}
+
+.name h1{
+    font-size:38px;
+    margin-bottom:5px;
+    text-shadow:0 0 12px #00d9ff;
+}
+
+.name p{
+    color:#d9f8ff;
+    margin-bottom:20px;
+}
+
+.text{
+    font-size:17px;
+    line-height:1.8;
+    color:#effcff;
+    margin-bottom:15px;
+}
+
+.text strong{
     color:#69e8ff;
 }
 
-
-/* ================= เป้าหมาย ================= */
-
 .goal{
-
-    font-size:17px;
-
+    font-size:16px;
     line-height:1.8;
-
     color:#d9f8ff;
-
-    margin-bottom:25px;
+    margin-bottom:12px;
 }
 
 .goal strong{
     color:#69e8ff;
 }
 
-
-/* ================= ปุ่ม ================= */
-
 .more{
-
     display:inline-block;
-
-    padding:14px 35px;
+    margin-top:10px;
+    padding:13px 32px;
 
     border-radius:35px;
 
-    background:
-        linear-gradient(
-            90deg,
-            #0077ff,
-            #00d9ff
-        );
+    background:linear-gradient(90deg,#0077ff,#00d9ff);
 
     color:white;
-
     text-decoration:none;
 
-    font-size:19px;
-
+    font-size:18px;
     font-weight:bold;
 
-    box-shadow:
-        0 0 20px rgba(0,210,255,.7);
+    box-shadow:0 0 20px rgba(0,210,255,.7);
 
     transition:.3s;
 }
 
 .more:hover{
-    transform:scale(1.07);
-
-    box-shadow:
-        0 0 35px #00d9ff;
+    transform:scale(1.06);
+    box-shadow:0 0 35px #00d9ff;
 }
-
-
-/* ================= มือถือ ================= */
 
 @media(max-width:800px){
 
@@ -530,8 +345,6 @@ nav a:hover{
     }
 
     nav{
-        height:auto;
-        min-height:70px;
         flex-wrap:wrap;
         gap:5px;
     }
@@ -541,65 +354,34 @@ nav a:hover{
         padding:8px 10px;
     }
 
-    .main{
-        padding:30px 15px;
-    }
-
-    .content{
+    .card{
         width:100%;
-        padding:28px 20px;
+        padding:25px 18px;
     }
 
     .welcome{
-        font-size:28px;
-    }
-
-    .profile{
-        width:125px;
-        height:125px;
+        font-size:27px;
     }
 
     .name h1{
-        font-size:31px;
-    }
-
-    .name p{
-        font-size:16px;
-    }
-
-    .intro{
-        font-size:16px;
-    }
-
-    .goal{
-        font-size:15px;
+        font-size:30px;
     }
 
     .solar{
         width:520px;
         height:520px;
         right:-270px;
-        opacity:.5;
+        opacity:.55;
     }
-
-    .more{
-        font-size:17px;
-        padding:13px 28px;
-    }
-
 }
-
 </style>
 </head>
-
 
 <body>
 
 <div class="space"></div>
 
-
 <!-- ระบบสุริยะ -->
-
 <div class="solar">
 
     <div class="orbit o1"></div>
@@ -620,70 +402,74 @@ nav a:hover{
 
 </div>
 
-
-<!-- เมนู -->
-
 <nav>
-
     <a href="index.html">🏠 หน้าแรก</a>
-
     <a href="about.html">👩🏻‍💻 เกี่ยวกับฉัน</a>
-
     <a href="portfolio.html">💼 ผลงาน</a>
-
     <a href="contact.html">📱 ติดต่อ</a>
-
 </nav>
-
-
-<!-- เนื้อหา -->
 
 <div class="main">
 
-    <div class="content">
+    <div class="card">
 
         <div class="welcome">
             WELCOME TO MY<br>
             PORTFOLIO
         </div>
 
-
-        <img
-            src="profile.jpg"
-            class="profile"
-            alt="รูปโปรไฟล์"
-        >
-
+        <img src="profile.jpg"
+             class="profile"
+             alt="รูปโปรไฟล์">
 
         <div class="name">
-
-            <h1>
-                ภัคจิรา นงนุช
-            </h1>
-
-            <p>
-                นักเรียนชั้นมัธยมศึกษาปีที่ 6
-            </p>
-
+            <h1>ภัคจิรา นงนุช</h1>
+            <p>นักเรียนชั้นมัธยมศึกษาปีที่ 6</p>
         </div>
 
+        <div class="text">
 
-        <!-- สร้างเว็บไซต์นี้มาเพื่อบอกอะไร -->
-
-        <div class="intro">
-
-            <strong>🌌 เว็บไซต์นี้สร้างขึ้นเพื่ออะไร?</strong>
+            <strong>🌌 เว็บไซต์นี้สร้างขึ้นเพื่อบอกอะไร?</strong>
 
             <br>
 
-            เว็บไซต์ Portfolio นี้จัดทำขึ้นเพื่อ
-            แนะนำตัวตน ความสนใจ และความสามารถของฉัน
-            รวมถึงรวบรวมผลงานและประสบการณ์ต่าง ๆ
+            เว็บไซต์ Portfolio นี้สร้างขึ้นเพื่อแนะนำตัวตน
+            ความสนใจ ความสามารถ และผลงานของฉัน
             เพื่อให้ทุกคนได้รู้จักฉันมากยิ่งขึ้น
 
         </div>
 
+        <div class="goal">
 
-        <!-- เป้าหมาย -->
+            <strong>🎯 เป้าหมายในอนาคต</strong>
 
-        <div class="go
+            <br>
+
+            ศึกษาต่อด้านบริหารธุรกิจ
+            และพัฒนาความรู้และทักษะ
+            เพื่อเตรียมพร้อมสำหรับการทำงานในอนาคต
+
+        </div>
+
+        <div class="goal">
+
+            <strong>🌟 เป้าหมายชีวิต</strong>
+
+            <br>
+
+            มีอาชีพที่มั่นคง ได้ทำงานที่ตัวเองชอบ
+            สามารถดูแลตัวเองและครอบครัว
+            และใช้ชีวิตอย่างมีความสุข
+
+        </div>
+
+        <a href="about.html" class="more">
+            ✨ รู้จักฉันมากขึ้น
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
