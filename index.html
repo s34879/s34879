@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio | นางสาวภัคจิรา นงนุช</title>
+<title>Portfolio | ภัคจิรา นงนุช</title>
 
 <style>
 *{
@@ -19,14 +19,14 @@ body{
     overflow:hidden;
 }
 
-/* ===== พื้นหลังอวกาศ ===== */
+/* ===== พื้นหลัง ===== */
 .space{
     position:fixed;
     inset:0;
     z-index:-20;
 
     background:
-        linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.15)),
+        linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.25)),
         url("space.jpg") center/cover no-repeat;
 }
 
@@ -40,107 +40,132 @@ body{
         radial-gradient(#8eeaff 1px,transparent 1.5px);
 
     background-size:100px 100px,160px 160px;
-    opacity:.35;
+    opacity:.4;
 }
 
 /* ===== เมนู ===== */
 nav{
     position:relative;
     z-index:100;
+
     min-height:75px;
 
     display:flex;
     justify-content:center;
     align-items:center;
-    gap:20px;
+    gap:12px;
 
-    background:rgba(0,5,20,.65);
+    background:rgba(0,5,20,.55);
     backdrop-filter:blur(12px);
 
-    border-bottom:1px solid rgba(100,220,255,.3);
+    border-bottom:1px solid rgba(100,220,255,.25);
 }
 
 nav a{
     color:white;
     text-decoration:none;
-    padding:10px 18px;
+
+    padding:10px 20px;
+
     border-radius:25px;
-    transition:.3s;
+
+    background:rgba(0,60,110,.35);
+    border:1px solid rgba(100,220,255,.35);
+
+    transition:.25s;
 }
 
 nav a:hover{
-    background:rgba(0,200,255,.2);
-    color:#7eeaff;
-    box-shadow:0 0 15px #00cfff;
+    transform:translateY(-3px) scale(1.04);
+    background:rgba(0,150,220,.35);
+    color:#8eeaff;
+
+    box-shadow:
+        0 0 15px rgba(0,210,255,.7);
+}
+
+/* เอฟเฟกต์ตอนกด */
+nav a:active{
+    transform:scale(.90);
+    box-shadow:
+        0 0 30px #00d9ff,
+        inset 0 0 15px rgba(255,255,255,.3);
 }
 
 /* ===== ระบบสุริยะ ===== */
 .solar{
     position:fixed;
-    width:700px;
-    height:700px;
-    right:-120px;
+
+    width:720px;
+    height:720px;
+
+    right:-40px;
     top:55%;
-    transform:translateY(-50%);
-    z-index:1;
+
+    transform:
+        translateY(-50%)
+        rotateX(20deg)
+        rotateY(-10deg);
+
+    perspective:1200px;
+
+    z-index:0;
     pointer-events:none;
 }
 
 .sun{
     position:absolute;
+
     width:105px;
     height:105px;
+
     left:50%;
     top:50%;
+
     transform:translate(-50%,-50%);
     border-radius:50%;
 
     background:radial-gradient(
         circle,
-        #fff 5%,
-        #fff7a0 25%,
-        #ffd21c 50%,
+        #fff 4%,
+        #fff7a0 22%,
+        #ffd21c 48%,
         #ff8500 75%,
-        #ff4500 100%
+        #ff3d00 100%
     );
 
     box-shadow:
         0 0 30px #fff,
-        0 0 65px #ffd21c,
-        0 0 120px #ff9000;
+        0 0 70px #ffd21c,
+        0 0 130px #ff8500;
 
-    animation:glow 3s infinite alternate;
+    animation:sunGlow 3s infinite alternate;
 }
 
-@keyframes glow{
-    from{
-        box-shadow:
-        0 0 25px #fff,
-        0 0 55px #ffd21c,
-        0 0 100px #ff9000;
-    }
-    to{
-        box-shadow:
-        0 0 40px #fff,
-        0 0 80px #ffd21c,
-        0 0 150px #ff9000;
-    }
+@keyframes sunGlow{
+    from{filter:brightness(1);}
+    to{filter:brightness(1.25);}
 }
 
 .orbit{
     position:absolute;
+
     left:50%;
     top:50%;
-    border:1px solid rgba(100,220,255,.35);
+
+    border:1px solid rgba(100,220,255,.38);
     border-radius:50%;
-    transform:translate(-50%,-50%) rotateX(65deg);
+
+    transform:
+        translate(-50%,-50%)
+        rotateX(65deg);
 }
 
 .o1{width:160px;height:160px;}
-.o2{width:240px;height:240px;}
-.o3{width:320px;height:320px;}
-.o4{width:410px;height:410px;}
-.o5{width:520px;height:520px;}
+.o2{width:230px;height:230px;}
+.o3{width:310px;height:310px;}
+.o4{width:400px;height:400px;}
+.o5{width:510px;height:510px;}
 .o6{width:630px;height:630px;}
 
 .planet{
@@ -151,51 +176,77 @@ nav a:hover{
 }
 
 .p1{
-    width:13px;height:13px;
+    width:13px;
+    height:13px;
     background:#aaa;
     animation:o1 5s linear infinite;
 }
 
 .p2{
-    width:19px;height:19px;
+    width:19px;
+    height:19px;
     background:#d6a96c;
     animation:o2 8s linear infinite;
 }
 
 .p3{
-    width:24px;height:24px;
-    background:radial-gradient(circle at 30% 30%,#8df3ff,#087cff 55%,#063c9e);
-    box-shadow:0 0 15px #00cfff;
+    width:25px;
+    height:25px;
+
+    background:
+        radial-gradient(circle at 30% 30%,
+        #8df3ff,#087cff 55%,#063c9e);
+
+    box-shadow:0 0 18px #00cfff;
+
     animation:o3 11s linear infinite;
 }
 
 .p4{
-    width:19px;height:19px;
+    width:19px;
+    height:19px;
     background:#d9533d;
     animation:o4 15s linear infinite;
 }
 
 .p5{
-    width:43px;height:43px;
-    background:linear-gradient(#d8b58c,#8d684d,#d8c09b,#9b7455);
+    width:43px;
+    height:43px;
+
+    background:
+        linear-gradient(
+            #d8b58c,
+            #8d684d,
+            #e1c79e,
+            #9b7455
+        );
+
     animation:o5 20s linear infinite;
 }
 
 .p6{
-    width:35px;height:35px;
+    width:35px;
+    height:35px;
     background:#d9bd7c;
     animation:o6 26s linear infinite;
 }
 
 .p6::after{
     content:"";
+
     position:absolute;
-    width:60px;
-    height:15px;
+
+    width:62px;
+    height:16px;
+
     left:50%;
     top:50%;
-    transform:translate(-50%,-50%) rotate(-15deg);
-    border:3px solid rgba(230,210,160,.8);
+
+    transform:
+        translate(-50%,-50%)
+        rotate(-15deg);
+
+    border:3px solid rgba(230,210,160,.85);
     border-radius:50%;
 }
 
@@ -203,22 +254,27 @@ nav a:hover{
     from{transform:rotate(0deg) translateX(80px);}
     to{transform:rotate(360deg) translateX(80px);}
 }
+
 @keyframes o2{
-    from{transform:rotate(60deg) translateX(120px);}
-    to{transform:rotate(420deg) translateX(120px);}
+    from{transform:rotate(60deg) translateX(115px);}
+    to{transform:rotate(420deg) translateX(115px);}
 }
+
 @keyframes o3{
-    from{transform:rotate(120deg) translateX(160px);}
-    to{transform:rotate(480deg) translateX(160px);}
+    from{transform:rotate(120deg) translateX(155px);}
+    to{transform:rotate(480deg) translateX(155px);}
 }
+
 @keyframes o4{
-    from{transform:rotate(180deg) translateX(205px);}
-    to{transform:rotate(540deg) translateX(205px);}
+    from{transform:rotate(180deg) translateX(200px);}
+    to{transform:rotate(540deg) translateX(200px);}
 }
+
 @keyframes o5{
-    from{transform:rotate(230deg) translateX(260px);}
-    to{transform:rotate(590deg) translateX(260px);}
+    from{transform:rotate(230deg) translateX(255px);}
+    to{transform:rotate(590deg) translateX(255px);}
 }
+
 @keyframes o6{
     from{transform:rotate(300deg) translateX(315px);}
     to{transform:rotate(660deg) translateX(315px);}
@@ -238,104 +294,102 @@ nav a:hover{
     padding:25px;
 }
 
-.card{
-    width:680px;
-    padding:32px 40px;
-
+.content{
+    width:600px;
     text-align:center;
-
-    background:rgba(0,20,55,.82);
-    backdrop-filter:blur(14px);
-
-    border:1px solid rgba(100,220,255,.45);
-    border-radius:30px;
-
-    box-shadow:0 0 35px rgba(0,150,255,.3);
 }
 
-.welcome{
-    font-size:36px;
-    font-weight:900;
-    color:#69e8ff;
+.profile{
+    width:170px;
+    height:170px;
+
+    object-fit:cover;
+    border-radius:50%;
+
+    border:3px solid rgba(120,230,255,.8);
+
+    box-shadow:
+        0 0 25px rgba(0,210,255,.7);
+
+    margin-bottom:18px;
+}
+
+.name h1{
+    font-size:42px;
+    color:#fff;
 
     text-shadow:
         0 0 10px #00d9ff,
         0 0 25px #008cff;
 
-    margin-bottom:18px;
-}
-
-.profile{
-    width:130px;
-    height:130px;
-    object-fit:cover;
-    border-radius:50%;
-
-    border:4px solid #7cecff;
-
-    box-shadow:
-        0 0 20px #00d9ff,
-        0 0 40px rgba(0,150,255,.5);
-
-    margin-bottom:12px;
-}
-
-.name h1{
-    font-size:38px;
-    margin-bottom:5px;
-    text-shadow:0 0 12px #00d9ff;
+    margin-bottom:8px;
 }
 
 .name p{
-    color:#d9f8ff;
+    color:#ccefff;
     margin-bottom:20px;
 }
 
-.text{
-    font-size:17px;
+/* กรอบใสขึ้น */
+.intro-card{
+    padding:28px 30px;
+
+    background:rgba(0,20,50,.42);
+    backdrop-filter:blur(7px);
+
+    border:1px solid rgba(130,230,255,.35);
+    border-radius:25px;
+
+    box-shadow:
+        0 0 25px rgba(0,150,255,.18);
+}
+
+.intro-card p{
+    font-size:18px;
     line-height:1.8;
-    color:#effcff;
-    margin-bottom:15px;
-}
-
-.text strong{
-    color:#69e8ff;
-}
-
-.goal{
-    font-size:16px;
-    line-height:1.8;
-    color:#d9f8ff;
-    margin-bottom:12px;
-}
-
-.goal strong{
-    color:#69e8ff;
 }
 
 .more{
     display:inline-block;
-    margin-top:10px;
-    padding:13px 32px;
 
-    border-radius:35px;
+    margin-top:20px;
 
-    background:linear-gradient(90deg,#0077ff,#00d9ff);
+    padding:14px 35px;
+
+    background:linear-gradient(
+        90deg,
+        #0077ff,
+        #00d9ff
+    );
 
     color:white;
     text-decoration:none;
 
+    border-radius:35px;
+
     font-size:18px;
     font-weight:bold;
 
-    box-shadow:0 0 20px rgba(0,210,255,.7);
+    box-shadow:
+        0 0 20px rgba(0,210,255,.55);
 
-    transition:.3s;
+    transition:.25s;
 }
 
 .more:hover{
-    transform:scale(1.06);
-    box-shadow:0 0 35px #00d9ff;
+    transform:translateY(-4px) scale(1.04);
+
+    box-shadow:
+        0 0 30px #00d9ff,
+        0 0 55px rgba(0,150,255,.6);
+}
+
+.more:active{
+    transform:scale(.90);
+
+    box-shadow:
+        0 0 45px #fff,
+        0 0 70px #00d9ff;
 }
 
 @media(max-width:800px){
@@ -346,32 +400,29 @@ nav a:hover{
 
     nav{
         flex-wrap:wrap;
-        gap:5px;
     }
 
     nav a{
         font-size:13px;
-        padding:8px 10px;
-    }
-
-    .card{
-        width:100%;
-        padding:25px 18px;
-    }
-
-    .welcome{
-        font-size:27px;
-    }
-
-    .name h1{
-        font-size:30px;
+        padding:8px 12px;
     }
 
     .solar{
-        width:520px;
-        height:520px;
-        right:-270px;
+        right:-300px;
         opacity:.55;
+    }
+
+    .content{
+        width:100%;
+    }
+
+    .profile{
+        width:145px;
+        height:145px;
+    }
+
+    .name h1{
+        font-size:32px;
     }
 }
 </style>
@@ -411,56 +462,37 @@ nav a:hover{
 
 <div class="main">
 
-    <div class="card">
+<div class="content">
 
-        <div class="welcome">
-            WELCOME TO MY<br>
-            PORTFOLIO
-        </div>
+    <img src="profile.jpg" class="profile" alt="รูปโปรไฟล์">
 
-        <img src="profile.jpg"
-             class="profile"
-             alt="รูปโปรไฟล์">
+    <div class="name">
+        <h1>ภัคจิรา นงนุช</h1>
+        <p>นักเรียนชั้นมัธยมศึกษาปีที่ 6</p>
+    </div>
 
-        <div class="name">
-            <h1>นางสาวภัคจิรา นงนุช</h1>
-            <p>นักเรียนชั้นมัธยมศึกษาปีที่ 6</p>
-        </div>
+    <div class="intro-card">
 
-        <div class="text">
+        <p>
+            🌌 เว็บไซต์นี้สร้างขึ้นเพื่อบอกเล่า
+            ตัวตน ความสนใจ และเส้นทางของฉัน
+            ผ่านผลงานและประสบการณ์ต่าง ๆ
+        </p>
 
-            <strong>🌌 เว็บไซต์นี้สร้างขึ้นเพื่อบอกอะไร?</strong>
-
-            <br>
-
-            เว็บไซต์ Portfolio นี้สร้างขึ้นเพื่อแนะนำตัวตน
-            ความสนใจ ความสามารถ และผลงานของฉัน
-            เพื่อให้ทุกคนได้รู้จักฉันมากยิ่งขึ้น
-
-        </div>
-
-        <div class="goal">
-
-            <strong>🎯 เป้าหมายในอนาคต</strong>
-
-            <br>
-
+        <p style="margin-top:15px;">
+            🎯 <b>เป้าหมายในอนาคต</b><br>
             ศึกษาต่อด้านบริหารธุรกิจ
             และพัฒนาความรู้และทักษะ
             เพื่อเตรียมพร้อมสำหรับการทำงานในอนาคต
-
-        </div>
-
-        <div class="goal">
-
-
-        </div>
+        </p>
 
         <a href="about.html" class="more">
             ✨ รู้จักฉันมากขึ้น
         </a>
 
     </div>
+
+</div>
 
 </div>
 
