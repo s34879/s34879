@@ -19,11 +19,11 @@ body{
     overflow:hidden;
 }
 
-/* ===== พื้นหลังอวกาศ ===== */
 .space{
     position:fixed;
     inset:0;
     z-index:-20;
+
     background:
         linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.25)),
         url("space.jpg") center/cover no-repeat;
@@ -33,45 +33,64 @@ body{
     content:"";
     position:absolute;
     inset:0;
+
     background-image:
         radial-gradient(white 1px,transparent 1.5px),
         radial-gradient(#8eeaff 1px,transparent 1.5px);
+
     background-size:100px 100px,160px 160px;
     opacity:.4;
 }
 
-/* ===== เมนู ===== */
+/* ===== เมนูแยกปุ่ม ===== */
 nav{
     position:relative;
     z-index:100;
+
     min-height:75px;
 
     display:flex;
     justify-content:center;
     align-items:center;
-    gap:20px;
+    gap:12px;
 
-    background:rgba(0,5,20,.65);
+    background:rgba(0,5,20,.55);
     backdrop-filter:blur(12px);
 
-    border-bottom:1px solid rgba(100,220,255,.35);
+    border-bottom:1px solid rgba(100,220,255,.25);
 }
 
 nav a{
     color:white;
     text-decoration:none;
-    padding:10px 18px;
+
+    padding:10px 20px;
+
     border-radius:25px;
-    transition:.3s;
+
+    background:rgba(0,60,110,.35);
+    border:1px solid rgba(100,220,255,.35);
+
+    transition:.25s;
 }
 
 nav a:hover{
-    background:rgba(0,200,255,.2);
-    color:#7eeaff;
-    box-shadow:0 0 15px #00cfff;
+    transform:translateY(-3px) scale(1.04);
+    background:rgba(0,150,220,.35);
+    color:#8eeaff;
+
+    box-shadow:0 0 15px rgba(0,210,255,.7);
 }
 
-/* ===== ระบบสุริยะ 3D ===== */
+nav a:active{
+    transform:scale(.90);
+
+    box-shadow:
+        0 0 30px #00d9ff,
+        inset 0 0 15px rgba(255,255,255,.3);
+}
+
+/* ===== ระบบสุริยะ ===== */
 .solar{
     position:fixed;
     width:720px;
@@ -93,6 +112,7 @@ nav a:hover{
 
 .sun{
     position:absolute;
+
     width:105px;
     height:105px;
 
@@ -114,22 +134,16 @@ nav a:hover{
     box-shadow:
         0 0 30px #fff,
         0 0 70px #ffd21c,
-        0 0 130px #ff8500,
-        0 0 190px rgba(255,100,0,.5);
+        0 0 130px #ff8500;
 
     animation:sunGlow 3s infinite alternate;
 }
 
 @keyframes sunGlow{
-    from{
-        filter:brightness(1);
-    }
-    to{
-        filter:brightness(1.25);
-    }
+    from{filter:brightness(1);}
+    to{filter:brightness(1.25);}
 }
 
-/* วงโคจร */
 .orbit{
     position:absolute;
 
@@ -142,8 +156,6 @@ nav a:hover{
     transform:
         translate(-50%,-50%)
         rotateX(65deg);
-
-    box-shadow:0 0 8px rgba(0,200,255,.12);
 }
 
 .o1{width:160px;height:160px;}
@@ -153,7 +165,6 @@ nav a:hover{
 .o5{width:510px;height:510px;}
 .o6{width:630px;height:630px;}
 
-/* ดาวเคราะห์ */
 .planet{
     position:absolute;
     left:50%;
@@ -161,52 +172,38 @@ nav a:hover{
     border-radius:50%;
 }
 
-/* พุธ */
 .p1{
-    width:13px;
-    height:13px;
+    width:13px;height:13px;
     background:#aaa;
-    box-shadow:0 0 8px #aaa;
-    animation:orbit1 5s linear infinite;
+    animation:o1 5s linear infinite;
 }
 
-/* ศุกร์ */
 .p2{
-    width:19px;
-    height:19px;
+    width:19px;height:19px;
     background:#d6a96c;
-    box-shadow:0 0 10px #d6a96c;
-    animation:orbit2 8s linear infinite;
+    animation:o2 8s linear infinite;
 }
 
-/* โลก */
 .p3{
-    width:25px;
-    height:25px;
+    width:25px;height:25px;
 
     background:
-        radial-gradient(circle at 30% 30%,#8df3ff,#087cff 55%,#063c9e);
+        radial-gradient(circle at 30% 30%,
+        #8df3ff,#087cff 55%,#063c9e);
 
-    box-shadow:
-        0 0 12px #00cfff,
-        0 0 25px rgba(0,200,255,.6);
+    box-shadow:0 0 18px #00cfff;
 
-    animation:orbit3 11s linear infinite;
+    animation:o3 11s linear infinite;
 }
 
-/* อังคาร */
 .p4{
-    width:19px;
-    height:19px;
+    width:19px;height:19px;
     background:#d9533d;
-    box-shadow:0 0 10px #ff573d;
-    animation:orbit4 15s linear infinite;
+    animation:o4 15s linear infinite;
 }
 
-/* พฤหัส */
 .p5{
-    width:43px;
-    height:43px;
+    width:43px;height:43px;
 
     background:
         linear-gradient(
@@ -216,21 +213,13 @@ nav a:hover{
             #9b7455
         );
 
-    box-shadow:0 0 12px rgba(255,220,170,.5);
-
-    animation:orbit5 20s linear infinite;
+    animation:o5 20s linear infinite;
 }
 
-/* เสาร์ */
 .p6{
-    width:35px;
-    height:35px;
-
+    width:35px;height:35px;
     background:#d9bd7c;
-
-    box-shadow:0 0 10px #d9bd7c;
-
-    animation:orbit6 26s linear infinite;
+    animation:o6 26s linear infinite;
 }
 
 .p6::after{
@@ -252,32 +241,32 @@ nav a:hover{
     border-radius:50%;
 }
 
-@keyframes orbit1{
+@keyframes o1{
     from{transform:rotate(0deg) translateX(80px);}
     to{transform:rotate(360deg) translateX(80px);}
 }
 
-@keyframes orbit2{
+@keyframes o2{
     from{transform:rotate(60deg) translateX(115px);}
     to{transform:rotate(420deg) translateX(115px);}
 }
 
-@keyframes orbit3{
+@keyframes o3{
     from{transform:rotate(120deg) translateX(155px);}
     to{transform:rotate(480deg) translateX(155px);}
 }
 
-@keyframes orbit4{
+@keyframes o4{
     from{transform:rotate(180deg) translateX(200px);}
     to{transform:rotate(540deg) translateX(200px);}
 }
 
-@keyframes orbit5{
+@keyframes o5{
     from{transform:rotate(230deg) translateX(255px);}
     to{transform:rotate(590deg) translateX(255px);}
 }
 
-@keyframes orbit6{
+@keyframes o6{
     from{transform:rotate(300deg) translateX(315px);}
     to{transform:rotate(660deg) translateX(315px);}
 }
@@ -293,60 +282,98 @@ nav a:hover{
     justify-content:center;
     align-items:center;
 
-    padding:25px;
+    padding:20px;
 }
 
 .card{
-    width:700px;
+    width:720px;
+    max-height:calc(100vh - 105px);
 
-    padding:35px 40px;
+    padding:25px 30px;
 
-    background:rgba(0,15,45,.84);
-    backdrop-filter:blur(14px);
+    background:rgba(0,15,45,.42);
+    backdrop-filter:blur(7px);
 
-    border:1px solid rgba(100,220,255,.45);
+    border:1px solid rgba(100,220,255,.35);
     border-radius:30px;
 
     box-shadow:
-        0 0 35px rgba(0,150,255,.3);
+        0 0 25px rgba(0,150,255,.18);
 
     text-align:center;
+
+    overflow:auto;
 }
 
 .card h1{
-    font-size:40px;
+    font-size:38px;
+
     color:#69e8ff;
 
     text-shadow:
         0 0 10px #00d9ff,
         0 0 25px #008cff;
 
-    margin-bottom:8px;
+    margin-bottom:12px;
 }
 
-.subtitle{
-    color:#c8f5ff;
-    margin-bottom:25px;
+/* รูปตัวเอง */
+.profile{
+    width:145px;
+    height:145px;
+
+    object-fit:cover;
+    border-radius:50%;
+
+    border:3px solid rgba(120,230,255,.8);
+
+    box-shadow:
+        0 0 25px rgba(0,210,255,.65);
+
+    margin-bottom:15px;
 }
 
-.info{
+/* แยกแต่ละหัวข้อ */
+.info-box{
     text-align:left;
-    font-size:17px;
-    line-height:1.8;
+
+    padding:16px 20px;
+
+    margin-top:12px;
+
+    background:rgba(0,60,110,.30);
+
+    border:1px solid rgba(100,220,255,.28);
+
+    border-radius:18px;
+
+    transition:.25s;
 }
 
-.section{
-    margin-bottom:17px;
+.info-box:hover{
+    transform:translateY(-3px);
+
+    background:rgba(0,100,160,.35);
+
+    box-shadow:
+        0 0 18px rgba(0,210,255,.3);
 }
 
-.section strong{
+.info-box strong{
     color:#69e8ff;
+    font-size:18px;
+}
+
+.info-box p{
+    line-height:1.7;
+    margin-top:4px;
 }
 
 .next{
     display:inline-block;
 
-    margin-top:10px;
+    margin-top:18px;
+
     padding:13px 30px;
 
     background:linear-gradient(
@@ -363,13 +390,24 @@ nav a:hover{
     font-weight:bold;
 
     box-shadow:
-        0 0 20px rgba(0,210,255,.6);
+        0 0 20px rgba(0,210,255,.55);
 
-    transition:.3s;
+    transition:.25s;
 }
 
 .next:hover{
-    transform:scale(1.06);
+    transform:translateY(-4px) scale(1.04);
+
+    box-shadow:
+        0 0 30px #00d9ff;
+}
+
+.next:active{
+    transform:scale(.90);
+
+    box-shadow:
+        0 0 45px #fff,
+        0 0 70px #00d9ff;
 }
 
 @media(max-width:800px){
@@ -380,26 +418,20 @@ nav a:hover{
 
     nav{
         flex-wrap:wrap;
-        gap:5px;
     }
 
     nav a{
         font-size:13px;
-        padding:8px 10px;
+        padding:8px 12px;
     }
 
     .solar{
         right:-300px;
-        opacity:.55;
+        opacity:.5;
     }
 
     .card{
         width:100%;
-        padding:28px 20px;
-    }
-
-    .card h1{
-        font-size:30px;
     }
 }
 </style>
@@ -409,7 +441,6 @@ nav a:hover{
 
 <div class="space"></div>
 
-<!-- ระบบสุริยะ -->
 <div class="solar">
 
     <div class="orbit o1"></div>
@@ -441,43 +472,43 @@ nav a:hover{
 
 <div class="card">
 
+    <img src="profile.jpg" class="profile" alt="รูปของฉัน">
+
     <h1>ABOUT ME</h1>
 
-    <div class="subtitle">
-        เกี่ยวกับตัวฉัน
+    <div class="info-box">
+        <strong>👩🏻 ชื่อ</strong>
+        <p>ภัคจิรา นงนุช</p>
     </div>
 
-    <div class="info">
+    <div class="info-box">
+        <strong>🎓 ระดับการศึกษา</strong>
+        <p>นักเรียนชั้นมัธยมศึกษาปีที่ 6</p>
+    </div>
 
-        <div class="section">
-            <strong>👩🏻 ชื่อ</strong><br>
-            ภัคจิรา นงนุช
-        </div>
-
-        <div class="section">
-            <strong>🎓 ระดับการศึกษา</strong><br>
-            นักเรียนชั้นมัธยมศึกษาปีที่ 6
-        </div>
-
-        <div class="section">
-            <strong>💡 ความสนใจ</strong><br>
+    <div class="info-box">
+        <strong>💡 ความสนใจ</strong>
+        <p>
             บริหารธุรกิจ • การตลาด • เทคโนโลยี
             • การเรียนรู้สิ่งใหม่ ๆ
-        </div>
+        </p>
+    </div>
 
-        <div class="section">
-            <strong>⭐ ทักษะ</strong><br>
+    <div class="info-box">
+        <strong>⭐ ทักษะ</strong>
+        <p>
             การทำงานเป็นทีม • ความรับผิดชอบ
             • การสื่อสาร • ความคิดสร้างสรรค์
-        </div>
+        </p>
+    </div>
 
-        <div class="section">
-            <strong>🎯 เป้าหมาย</strong><br>
+    <div class="info-box">
+        <strong>🎯 เป้าหมายในอนาคต</strong>
+        <p>
             ศึกษาต่อด้านบริหารธุรกิจ
             และพัฒนาความรู้และทักษะ
             เพื่อเตรียมพร้อมสำหรับการทำงานในอนาคต
-        </div>
-
+        </p>
     </div>
 
     <a href="portfolio.html" class="next">
