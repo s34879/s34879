@@ -2,34 +2,177 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<meta viewport="width=device-width, initial-scale=1.0">
-<title>แฟมสะสมงานของฉัน </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Portfolio</title>
+
 <style>
-body { font-family: sans-serif; background-color: #f4f7f6; text-align: center;
-padding: 30px; }
-.container { max-width: 800px; margin: 0 auto; }
-.project-card { background: white; padding: 20px; margin: 20px 0; border-radius:
-8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: left; }
-.btn { display: inline-block; background: #2c3e50; color: white; padding: 10px
-20px; text-decoration: none; border-radius: 5px; margin-top: 20px; }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #fff5f8;
+    color: #333;
+}
+
+nav {
+    background: white;
+    padding: 18px;
+    text-align: center;
+    box-shadow: 0 2px 10px #ddd;
+}
+
+nav a {
+    color: #d94f78;
+    text-decoration: none;
+    margin: 0 12px;
+    font-weight: bold;
+}
+
+header {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(135deg, #ffb6c9, #ffdce7);
+}
+
+header h1 {
+    color: #8b3a55;
+    font-size: 40px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.portfolio {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.work {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px #ddd;
+    transition: 0.3s;
+}
+
+.work:hover {
+    transform: translateY(-7px);
+}
+
+.work img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+}
+
+.content {
+    padding: 20px;
+}
+
+.content h2 {
+    color: #e75480;
+    margin-bottom: 10px;
+}
+
+.content p {
+    line-height: 1.7;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #ffb6c9;
+    margin-top: 50px;
+}
 </style>
 </head>
+
 <body>
+
+<nav>
+    <a href="index.html">🏠 หน้าแรก</a>
+    <a href="about.html">👩 แนะนำตัว</a>
+    <a href="portfolio.html">🏆 ผลงาน</a>
+    <a href="contact.html">📞 ติดต่อ</a>
+</nav>
+
+<header>
+    <h1>🏆 My Portfolio</h1>
+    <p>ผลงานและกิจกรรมของฉัน</p>
+</header>
+
 <div class="container">
-<h1> แฟมสะสมงาน (Portfolio)</h1>
-<p>นี่คือพื้นที่รวบรวมผลงานและกิจกรรมที่ภูมิใจค่ะ</p>
-<!-- กล่องผลงานชนที่ ้ิ 1 -->
-<div class="project-card">
-<h3>1. โครงงาน/ชนงานวิทยาศาสตร์คำานวณ </h3>
-<p>รายละเอียดชนงาน ิ้ : เขียนอธิบายสันๆ ว่าทำอะไร ได้เรียนรู้อะไรจากงานนี้บ้าง </p>
+
+<div class="portfolio">
+
+    <!-- ผลงานที่ 1 -->
+    <div class="work">
+
+        <img src="work1.jpg" alt="ผลงานที่ 1">
+
+        <div class="content">
+            <h2>ผลงานที่ 1</h2>
+
+            <p>
+                ใส่ชื่อกิจกรรมหรือผลงานที่นี่
+                และเขียนรายละเอียดเกี่ยวกับผลงาน
+                รวมถึงสิ่งที่ได้รับจากการทำกิจกรรม
+            </p>
+        </div>
+
+    </div>
+
+
+    <!-- ผลงานที่ 2 -->
+    <div class="work">
+
+        <img src="work2.jpg" alt="ผลงานที่ 2">
+
+        <div class="content">
+            <h2>ผลงานที่ 2</h2>
+
+            <p>
+                ใส่รายละเอียดเกี่ยวกับผลงานที่สอง
+                เช่น หน้าที่ที่ได้รับ
+                และสิ่งที่ได้เรียนรู้
+            </p>
+        </div>
+
+    </div>
+
+
+    <!-- ผลงานที่ 3 -->
+    <div class="work">
+
+        <img src="work3.jpg" alt="ผลงานที่ 3">
+
+        <div class="content">
+            <h2>ผลงานที่ 3</h2>
+
+            <p>
+                ใส่รายละเอียดเกี่ยวกับผลงานที่สาม
+                เช่น การแข่งขัน โครงงาน
+                หรือกิจกรรมต่าง ๆ
+            </p>
+        </div>
+
+    </div>
+
 </div>
-<!-- กล่องผลงานชนที่ ้ิ 2 -->
-<div class="project-card">
-<h3>2. กิจกรรม/เกียรติบัตรที่ได้รับ</h3>
-<p>รายละเอียดชนงาน : เข้าร่วมการประกวด หรือกิจกรรมของโรงเรียน...</p>
+
 </div>
-<!-- ปุ่มกดกลับหน้าแรก -->
-<a href="index.html" class="btn"> กลับหน้าแรก</a>
-</div>
+
+<footer>
+    My Portfolio 💕
+</footer>
+
 </body>
 </html>
