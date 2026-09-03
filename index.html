@@ -4,87 +4,125 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>นางสาวภัคจิรา นงนุช | My Portfolio</title>
+<title>Portfolio - นางสาวภัคจิรา นงนุช</title>
 
 <style>
 
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
 }
 
 body{
-    font-family:Arial,"Noto Sans Thai",sans-serif;
+    font-family:Arial, "Noto Sans Thai", sans-serif;
     color:white;
     min-height:100vh;
     overflow:hidden;
-    background:#020817;
 }
 
-/* ================= BACKGROUND ================= */
+/* ================= พื้นหลัง ================= */
 
 .space{
     position:fixed;
     inset:0;
-    z-index:-20;
+    z-index:-10;
 
     background:
     linear-gradient(
-        rgba(0,5,25,.12),
-        rgba(0,10,35,.25)
+        rgba(0,5,25,0.25),
+        rgba(0,10,40,0.35)
     ),
-    url("space.jpg") center/cover no-repeat;
+    url("space.jpg") center center / cover no-repeat;
 }
 
-.space:after{
+/* ดาวเล็ก ๆ */
+
+.space::after{
     content:"";
     position:absolute;
     inset:0;
 
     background-image:
-        radial-gradient(#ffffff 1px,transparent 1px),
-        radial-gradient(#8eeaff 1px,transparent 1px);
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(#8eeaff 1px, transparent 1px);
 
     background-size:
         90px 90px,
         145px 145px;
 
-    opacity:.55;
+    opacity:.6;
 }
 
 
-/* ================= SOLAR SYSTEM ================= */
+/* ================= NAVBAR ================= */
+
+nav{
+    position:relative;
+    z-index:100;
+
+    height:75px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    gap:35px;
+
+    background:rgba(0,10,35,.65);
+    backdrop-filter:blur(12px);
+
+    border-bottom:1px solid rgba(120,220,255,.25);
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+
+    font-size:16px;
+
+    padding:10px 18px;
+
+    border-radius:20px;
+
+    transition:.3s;
+}
+
+nav a:hover{
+    background:rgba(0,200,255,.2);
+    color:#7eeaff;
+
+    box-shadow:
+        0 0 15px rgba(0,200,255,.5);
+}
+
+
+/* ================= ระบบสุริยะ ================= */
 
 .solar{
     position:fixed;
 
-    width:720px;
-    height:720px;
+    width:700px;
+    height:700px;
 
-    right:-40px;
+    right:-50px;
     top:50%;
 
-    transform:
-        translateY(-50%)
-        rotateX(15deg)
-        rotateY(-8deg);
+    transform:translateY(-50%);
 
-    perspective:1200px;
-
-    z-index:-3;
+    z-index:2;
 
     pointer-events:none;
 }
 
 
-/* SUN */
+/* ดวงอาทิตย์ */
 
 .sun{
     position:absolute;
 
-    width:105px;
-    height:105px;
+    width:110px;
+    height:110px;
 
     left:50%;
     top:50%;
@@ -94,38 +132,45 @@ body{
     border-radius:50%;
 
     background:
-        radial-gradient(
-            circle,
-            #ffffff 3%,
-            #fff8a5 22%,
-            #ffd21c 50%,
-            #ff8500 75%,
-            #ff4d00 100%
-        );
+    radial-gradient(
+        circle,
+        #ffffff 5%,
+        #fff6a0 25%,
+        #ffd21c 50%,
+        #ff8500 75%,
+        #ff4500 100%
+    );
 
     box-shadow:
-        0 0 30px #ffffff,
-        0 0 70px #ffd21c,
-        0 0 130px #ff8500,
-        0 0 190px rgba(255,100,0,.5);
+        0 0 25px #fff,
+        0 0 60px #ffd21c,
+        0 0 110px #ff9d00,
+        0 0 180px rgba(255,120,0,.6);
 
-    animation:sunPulse 3s ease-in-out infinite alternate;
+    animation:sunGlow 3s infinite alternate;
 }
 
-@keyframes sunPulse{
+@keyframes sunGlow{
 
     from{
-        transform:translate(-50%,-50%) scale(1);
+        box-shadow:
+        0 0 25px #fff,
+        0 0 60px #ffd21c,
+        0 0 110px #ff9d00;
     }
 
     to{
-        transform:translate(-50%,-50%) scale(1.08);
+        box-shadow:
+        0 0 35px #fff,
+        0 0 80px #ffd21c,
+        0 0 140px #ff8500,
+        0 0 200px rgba(255,100,0,.5);
     }
 
 }
 
 
-/* ORBITS */
+/* วงโคจร */
 
 .orbit{
     position:absolute;
@@ -133,52 +178,53 @@ body{
     left:50%;
     top:50%;
 
-    border:
-        1px solid
-        rgba(130,225,255,.38);
+    border:1px solid rgba(100,220,255,.45);
 
     border-radius:50%;
 
     transform:
         translate(-50%,-50%)
-        rotateX(62deg);
+        rotateX(65deg);
 
     box-shadow:
-        0 0 8px rgba(0,200,255,.08);
+        0 0 8px rgba(0,200,255,.15);
 }
 
+
+/* ขนาดวงโคจร */
+
 .o1{
-    width:170px;
-    height:170px;
+    width:160px;
+    height:160px;
 }
 
 .o2{
-    width:245px;
-    height:245px;
+    width:240px;
+    height:240px;
 }
 
 .o3{
-    width:330px;
-    height:330px;
+    width:320px;
+    height:320px;
 }
 
 .o4{
-    width:425px;
-    height:425px;
+    width:410px;
+    height:410px;
 }
 
 .o5{
-    width:525px;
-    height:525px;
+    width:520px;
+    height:520px;
 }
 
 .o6{
-    width:625px;
-    height:625px;
+    width:630px;
+    height:630px;
 }
 
 
-/* PLANETS */
+/* ================= ดาวเคราะห์ ================= */
 
 .planet{
     position:absolute;
@@ -187,200 +233,139 @@ body{
     top:50%;
 
     border-radius:50%;
+
+    transform-origin:center;
+
 }
 
 
-/* Mercury */
+/* ดาวพุธ */
 
 .p1{
-    width:13px;
-    height:13px;
+    width:14px;
+    height:14px;
 
-    background:
-        radial-gradient(
-            circle at 30% 30%,
-            #eeeeee,
-            #777777
-        );
+    background:#aaa;
 
-    box-shadow:
-        0 0 12px #dddddd;
-
-    animation:
-        orbit1
-        5s
-        linear
-        infinite;
+    animation:orbit1 5s linear infinite;
 }
 
 
-/* Venus */
+/* ดาวศุกร์ */
 
 .p2{
     width:20px;
     height:20px;
 
-    background:
-        radial-gradient(
-            circle at 30% 30%,
-            #ffe1a0,
-            #c77b32
-        );
+    background:#e4b66b;
 
-    box-shadow:
-        0 0 15px #ffc56d;
+    box-shadow:0 0 10px #e4b66b;
 
-    animation:
-        orbit2
-        8s
-        linear
-        infinite;
+    animation:orbit2 8s linear infinite;
 }
 
 
-/* Earth */
+/* โลก */
 
 .p3{
-    width:25px;
-    height:25px;
+    width:24px;
+    height:24px;
 
     background:
-        radial-gradient(
-            circle at 30% 30%,
-            #65d8ff,
-            #1671c5 55%,
-            #073d85
-        );
+    radial-gradient(
+        circle at 30% 30%,
+        #6ee7ff,
+        #087cff 55%,
+        #073b9e
+    );
 
     box-shadow:
-        0 0 18px #26cfff;
+        0 0 15px #22cfff;
 
-    animation:
-        orbit3
-        11s
-        linear
-        infinite;
+    animation:orbit3 11s linear infinite;
 }
 
 
-/* Mars */
+/* ดาวอังคาร */
 
 .p4{
     width:19px;
     height:19px;
 
-    background:
-        radial-gradient(
-            circle at 30% 30%,
-            #ff9075,
-            #a93226
-        );
+    background:#e65b3c;
 
-    box-shadow:
-        0 0 14px #ff6655;
+    box-shadow:0 0 10px #e65b3c;
 
-    animation:
-        orbit4
-        15s
-        linear
-        infinite;
+    animation:orbit4 15s linear infinite;
 }
 
 
-/* Jupiter */
+/* ดาวพฤหัส */
 
 .p5{
-    width:48px;
-    height:48px;
+    width:42px;
+    height:42px;
 
     background:
-        linear-gradient(
-            180deg,
-            #ead0a4,
-            #a9784f,
-            #ead5af,
-            #95613f
-        );
+    linear-gradient(
+        #d9b58c,
+        #8e6b4e,
+        #d9c09b,
+        #9b7354
+    );
 
-    box-shadow:
-        0 0 18px #e9bd87;
-
-    animation:
-        orbit5
-        22s
-        linear
-        infinite;
+    animation:orbit5 20s linear infinite;
 }
 
 
-/* Saturn */
+/* ดาวเสาร์ */
 
 .p6{
-    width:39px;
-    height:39px;
+    width:35px;
+    height:35px;
 
-    background:
-        radial-gradient(
-            circle at 30% 30%,
-            #fff1bb,
-            #bca06a
-        );
+    background:#d9bd7c;
 
-    box-shadow:
-        0 0 18px #ffe9a3;
-
-    animation:
-        orbit6
-        30s
-        linear
-        infinite;
+    animation:orbit6 26s linear infinite;
 }
 
-
-/* SATURN RING */
-
-.p6:after{
+.p6::after{
     content:"";
 
     position:absolute;
 
-    width:65px;
-    height:19px;
+    width:58px;
+    height:15px;
 
     left:50%;
     top:50%;
 
     transform:
         translate(-50%,-50%)
-        rotate(-18deg);
+        rotate(-15deg);
 
-    border:
-        3px solid
-        rgba(245,220,160,.8);
+    border:3px solid rgba(230,210,160,.8);
 
     border-radius:50%;
-
-    box-shadow:
-        0 0 8px rgba(255,230,170,.5);
 }
 
 
-/* ORBIT ANIMATION */
+/* ================= Animation ================= */
 
 @keyframes orbit1{
 
     from{
         transform:
-            rotate(0deg)
-            translateX(85px)
-            rotate(0deg);
+        rotate(0deg)
+        translateX(80px)
+        rotate(0deg);
     }
 
     to{
         transform:
-            rotate(360deg)
-            translateX(85px)
-            rotate(-360deg);
+        rotate(360deg)
+        translateX(80px)
+        rotate(-360deg);
     }
 
 }
@@ -389,16 +374,16 @@ body{
 
     from{
         transform:
-            rotate(0deg)
-            translateX(122px)
-            rotate(0deg);
+        rotate(60deg)
+        translateX(120px)
+        rotate(-60deg);
     }
 
     to{
         transform:
-            rotate(360deg)
-            translateX(122px)
-            rotate(-360deg);
+        rotate(420deg)
+        translateX(120px)
+        rotate(-420deg);
     }
 
 }
@@ -407,16 +392,16 @@ body{
 
     from{
         transform:
-            rotate(0deg)
-            translateX(165px)
-            rotate(0deg);
+        rotate(120deg)
+        translateX(160px)
+        rotate(-120deg);
     }
 
     to{
         transform:
-            rotate(360deg)
-            translateX(165px)
-            rotate(-360deg);
+        rotate(480deg)
+        translateX(160px)
+        rotate(-480deg);
     }
 
 }
@@ -425,16 +410,16 @@ body{
 
     from{
         transform:
-            rotate(0deg)
-            translateX(212px)
-            rotate(0deg);
+        rotate(180deg)
+        translateX(205px)
+        rotate(-180deg);
     }
 
     to{
         transform:
-            rotate(360deg)
-            translateX(212px)
-            rotate(-360deg);
+        rotate(540deg)
+        translateX(205px)
+        rotate(-540deg);
     }
 
 }
@@ -443,16 +428,16 @@ body{
 
     from{
         transform:
-            rotate(0deg)
-            translateX(262px)
-            rotate(0deg);
+        rotate(230deg)
+        translateX(260px)
+        rotate(-230deg);
     }
 
     to{
         transform:
-            rotate(360deg)
-            translateX(262px)
-            rotate(-360deg);
+        rotate(590deg)
+        translateX(260px)
+        rotate(-590deg);
     }
 
 }
@@ -461,241 +446,131 @@ body{
 
     from{
         transform:
-            rotate(0deg)
-            translateX(312px)
-            rotate(0deg);
+        rotate(300deg)
+        translateX(315px)
+        rotate(-300deg);
     }
 
     to{
         transform:
-            rotate(360deg)
-            translateX(312px)
-            rotate(-360deg);
+        rotate(660deg)
+        translateX(315px)
+        rotate(-660deg);
     }
 
 }
 
 
-/* ================= NAVIGATION ================= */
-
-nav{
-    position:relative;
-
-    z-index:10;
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:12px;
-
-    padding:22px;
-}
-
-nav a{
-
-    color:white;
-
-    text-decoration:none;
-
-    padding:
-        9px 18px;
-
-    border-radius:25px;
-
-    background:
-        rgba(0,70,120,.32);
-
-    border:
-        1px solid
-        rgba(150,230,255,.25);
-
-    backdrop-filter:blur(8px);
-
-    transition:.3s;
-}
-
-nav a:hover{
-
-    background:
-        rgba(0,180,255,.28);
-
-    box-shadow:
-        0 0 20px
-        #00d9ff;
-
-    transform:
-        translateY(-3px);
-}
-
-
-/* ================= MAIN ================= */
+/* ================= หน้าแรก ================= */
 
 .main{
+    position:relative;
 
-    min-height:
-        calc(100vh - 75px);
+    z-index:20;
+
+    min-height:calc(100vh - 75px);
 
     display:flex;
 
     align-items:center;
 
-    padding-left:
-        8%;
-
-    padding-bottom:
-        30px;
-
+    padding-left:8%;
 }
 
 
-/* CONTENT LEFT */
+/* กล่องฝั่งซ้าย */
 
 .content{
-
-    width:
-        430px;
+    width:460px;
 
     text-align:center;
 
     position:relative;
 
-    z-index:5;
+    z-index:30;
 }
 
 
-/* PROFILE IMAGE */
+/* รูปโปรไฟล์ */
 
 .profile{
-
-    width:190px;
-    height:190px;
+    width:180px;
+    height:180px;
 
     object-fit:cover;
 
     border-radius:50%;
 
-    border:
-        4px solid
-        rgba(130,235,255,.85);
+    border:4px solid rgba(150,235,255,.9);
 
     box-shadow:
-        0 0 25px #00d9ff,
-        0 0 65px rgba(0,200,255,.4);
+        0 0 20px rgba(0,220,255,.8),
+        0 0 50px rgba(0,150,255,.4);
 
     margin-bottom:20px;
-
-    transition:.5s;
-}
-
-.profile:hover{
-
-    transform:
-        scale(1.05)
-        rotate(2deg);
-
-    box-shadow:
-        0 0 35px #00eaff,
-        0 0 85px rgba(0,210,255,.55);
 }
 
 
-/* NAME OUTSIDE CARD */
+/* ชื่อ */
 
 .name{
-
-    margin-bottom:22px;
-
+    margin-bottom:25px;
 }
 
 .name h1{
-
-    font-size:42px;
-
-    margin-bottom:7px;
-
-    text-shadow:
-        0 0 20px #00d9ff,
-        0 0 45px rgba(0,180,255,.4);
-}
-
-.name p{
-
-    color:#9deeff;
-
-    font-size:17px;
-
-    letter-spacing:1px;
-}
-
-
-/* CARD */
-
-.intro-card{
-
-    padding:
-        28px 30px;
-
-    background:
-        rgba(0,25,60,.65);
-
-    backdrop-filter:
-        blur(12px);
-
-    border:
-        1px solid
-        rgba(150,230,255,.3);
-
-    border-radius:
-        25px;
-
-    box-shadow:
-        0 20px 50px
-        rgba(0,0,0,.4);
-
-    transition:.4s;
-}
-
-.intro-card:hover{
-
-    border-color:
-        rgba(0,220,255,.55);
-
-    box-shadow:
-        0 20px 60px
-        rgba(0,180,255,.18);
-
-}
-
-
-/* CARD TEXT */
-
-.intro-card p{
-
-    color:#dcefff;
-
-    line-height:1.8;
-
-    margin-bottom:20px;
-}
-
-
-/* BUTTON */
-
-.more{
-
-    display:inline-block;
-
-    padding:
-        14px 30px;
+    font-size:40px;
 
     color:white;
 
-    text-decoration:none;
+    text-shadow:
+        0 0 10px #00d9ff,
+        0 0 25px rgba(0,200,255,.7);
 
-    font-size:16px;
+    margin-bottom:8px;
+}
 
-    font-weight:bold;
+.name p{
+    color:#b9edff;
+
+    font-size:17px;
+}
+
+
+/* การ์ด */
+
+.intro-card{
+    padding:28px 30px;
+
+    background:
+        rgba(0,25,60,.78);
+
+    backdrop-filter:blur(15px);
+
+    border:
+        1px solid rgba(130,230,255,.45);
+
+    border-radius:25px;
+
+    box-shadow:
+        0 0 25px rgba(0,150,255,.25),
+        inset 0 0 20px rgba(0,150,255,.08);
+}
+
+.intro-card p{
+    line-height:1.8;
+
+    color:#e5faff;
+
+    margin-bottom:22px;
+}
+
+
+/* ================= ปุ่ม ================= */
+
+.more{
+    display:inline-block;
+
+    padding:14px 30px;
 
     border-radius:30px;
 
@@ -706,88 +581,87 @@ nav a:hover{
             #00d9ff
         );
 
-    box-shadow:
-        0 0 25px
-        rgba(0,210,255,.45);
+    color:white;
 
-    transition:.35s;
+    text-decoration:none;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    box-shadow:
+        0 0 15px rgba(0,200,255,.6);
+
+    transition:.3s;
 }
 
 .more:hover{
-
-    transform:
-        translateY(-5px)
-        scale(1.04);
+    transform:scale(1.07);
 
     box-shadow:
-        0 0 35px
-        #00d9ff;
+        0 0 25px #00d9ff,
+        0 0 50px rgba(0,180,255,.5);
 }
 
 
-/* ================= MOBILE ================= */
+/* ================= มือถือ ================= */
 
-@media(max-width:800px){
+@media(max-width:850px){
 
     body{
         overflow:auto;
     }
 
     nav{
-        gap:7px;
-        padding:15px 10px;
+        gap:5px;
+
+        height:auto;
+
+        min-height:70px;
+
+        flex-wrap:wrap;
+
+        padding:10px;
     }
 
     nav a{
-        padding:8px 12px;
         font-size:13px;
+
+        padding:7px 10px;
     }
 
     .solar{
+        width:500px;
+        height:500px;
 
-        width:480px;
-        height:480px;
-
-        right:-220px;
+        right:-260px;
 
         top:55%;
 
-        opacity:.65;
+        opacity:.55;
     }
 
     .main{
-
-        justify-content:center;
+        min-height:calc(100vh - 70px);
 
         padding:
-            35px 20px 60px;
+            40px 20px;
 
+        justify-content:center;
     }
 
     .content{
-
-        width:
-            min(400px,95vw);
-
+        width:100%;
+        max-width:430px;
     }
 
     .profile{
-
         width:150px;
         height:150px;
-
     }
 
     .name h1{
-
-        font-size:32px;
-
-    }
-
-    .intro-card{
-
-        padding:24px 20px;
-
+        font-size:30px;
     }
 
 }
@@ -799,13 +673,79 @@ nav a:hover{
 <body>
 
 
-<!-- BACKGROUND -->
+<!-- ================= พื้นหลัง ================= -->
 
 <div class="space"></div>
 
 
-<!-- SOLAR SYSTEM -->
+<!-- ================= ระบบสุริยะ ================= -->
 
 <div class="solar">
 
-  
+    <div class="orbit o1"></div>
+    <div class="orbit o2"></div>
+    <div class="orbit o3"></div>
+    <div class="orbit o4"></div>
+    <div class="orbit o5"></div>
+    <div class="orbit o6"></div>
+
+    <div class="sun"></div>
+
+    <div class="planet p1"></div>
+    <div class="planet p2"></div>
+    <div class="planet p3"></div>
+    <div class="planet p4"></div>
+    <div class="planet p5"></div>
+    <div class="planet p6"></div>
+
+</div>
+
+
+<!-- ================= เมนู ================= -->
+
+<nav>
+
+    <a href="index.html">🏠 หน้าแรก</a>
+
+    <a href="about.html">👩🏻‍💻 เกี่ยวกับฉัน</a>
+
+    <a href="portfolio.html">💼 ผลงาน</a>
+
+    <a href="contact.html">📱 ติดต่อ</a>
+
+</nav>
+
+
+<!-- ================= เนื้อหาหน้าแรก ================= -->
+
+<div class="main">
+
+    <div class="content">
+
+
+        <!-- รูปตัวเอง -->
+        <img
+            src="profile.jpg"
+            class="profile"
+            alt="รูปโปรไฟล์"
+        >
+
+
+        <!-- ชื่ออยู่นอกการ์ด -->
+
+        <div class="name">
+
+            <h1>
+                ภัคจิรา นงนุช
+            </h1>
+
+            <p>
+                นักเรียนชั้นมัธยมศึกษาปีที่ 6
+            </p>
+
+        </div>
+
+
+        <!-- การ์ดแนะนำ -->
+
+        <div class="intro-card">
