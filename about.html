@@ -3,27 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>เกี่ยวกับฉัน | Portfolio</title>
+<title>About Me - ภัคจิรา</title>
 
 <style>
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
 }
 
 body{
-    font-family:Arial,"Noto Sans Thai",sans-serif;
+    font-family:Arial, sans-serif;
     color:white;
     min-height:100vh;
-    overflow:hidden;
+    overflow-x:hidden;
 }
+
+/* ================= BACKGROUND ================= */
 
 .space{
     position:fixed;
     inset:0;
     z-index:-20;
-
     background:
         linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.25)),
         url("space.jpg") center/cover no-repeat;
@@ -33,44 +34,32 @@ body{
     content:"";
     position:absolute;
     inset:0;
-
     background-image:
         radial-gradient(white 1px,transparent 1.5px),
         radial-gradient(#8eeaff 1px,transparent 1.5px);
-
     background-size:100px 100px,160px 160px;
     opacity:.4;
 }
 
-/* ===== เมนูแยกปุ่ม ===== */
+/* ================= NAV ================= */
+
 nav{
     position:relative;
-    z-index:100;
-
-    min-height:75px;
-
+    z-index:20;
     display:flex;
     justify-content:center;
-    align-items:center;
     gap:12px;
-
-    background:rgba(0,5,20,.55);
-    backdrop-filter:blur(12px);
-
-    border-bottom:1px solid rgba(100,220,255,.25);
+    padding:22px 15px;
+    flex-wrap:wrap;
 }
 
 nav a{
     color:white;
     text-decoration:none;
-
     padding:10px 20px;
-
     border-radius:25px;
-
     background:rgba(0,60,110,.35);
     border:1px solid rgba(100,220,255,.35);
-
     transition:.25s;
 }
 
@@ -78,360 +67,283 @@ nav a:hover{
     transform:translateY(-3px) scale(1.04);
     background:rgba(0,150,220,.35);
     color:#8eeaff;
-
     box-shadow:0 0 15px rgba(0,210,255,.7);
 }
 
 nav a:active{
     transform:scale(.90);
-
     box-shadow:
         0 0 30px #00d9ff,
         inset 0 0 15px rgba(255,255,255,.3);
 }
 
-/* ===== ระบบสุริยะ ===== */
+/* ================= CONTENT ================= */
+
+.container{
+    position:relative;
+    z-index:10;
+    width:min(900px,92%);
+    margin:20px auto 50px;
+    text-align:center;
+}
+
+h1{
+    font-size:42px;
+    color:#8eeaff;
+    text-shadow:0 0 15px #00cfff;
+    margin-bottom:18px;
+}
+
+.profile{
+    width:145px;
+    height:145px;
+    object-fit:cover;
+    border-radius:50%;
+    border:3px solid #8eeaff;
+    box-shadow:0 0 25px rgba(0,210,255,.8);
+    margin-bottom:25px;
+}
+
+/* ================= BOX ================= */
+
+.section-title{
+    font-size:22px;
+    color:#8eeaff;
+    margin:25px 0 15px;
+}
+
+.info-box{
+    background:rgba(0,60,110,.30);
+    backdrop-filter:blur(7px);
+    border:1px solid rgba(100,220,255,.35);
+    border-radius:18px;
+    padding:18px 22px;
+    margin:12px 0;
+    text-align:left;
+    transition:.3s;
+}
+
+.info-box:hover{
+    transform:translateY(-4px);
+    background:rgba(0,100,160,.38);
+    box-shadow:0 0 20px rgba(0,210,255,.4);
+}
+
+.info-box h3{
+    color:#8eeaff;
+    margin-bottom:7px;
+}
+
+.info-box p{
+    line-height:1.6;
+    color:#f2fbff;
+}
+
+/* ================= PERSONAL INFORMATION ================= */
+
+.personal-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+}
+
+.personal-grid .info-box{
+    margin:0;
+}
+
+.personal-grid h3{
+    font-size:16px;
+}
+
+.personal-grid p{
+    font-size:15px;
+}
+
+/* ================= BUTTON ================= */
+
+.btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:13px 28px;
+    border-radius:30px;
+    color:white;
+    text-decoration:none;
+    background:rgba(0,130,190,.35);
+    border:1px solid #62ddff;
+    transition:.25s;
+}
+
+.btn:hover{
+    transform:translateY(-4px) scale(1.05);
+    background:rgba(0,180,230,.45);
+    box-shadow:0 0 25px rgba(0,220,255,.8);
+}
+
+.btn:active{
+    transform:scale(.9);
+    box-shadow:
+        0 0 35px #00d9ff,
+        inset 0 0 20px rgba(255,255,255,.3);
+}
+
+/* ================= SOLAR SYSTEM ================= */
+
 .solar{
     position:fixed;
     width:720px;
     height:720px;
-
-    right:-170px;
-    top:55%;
-
-    transform:
-        translateY(-50%)
-        rotateX(20deg)
-        rotateY(-15deg);
-
-    perspective:1200px;
-
-    z-index:0;
+    right:-180px;
+    top:100px;
+    perspective:1000px;
+    transform:rotateX(62deg) rotateZ(-10deg);
+    z-index:-5;
     pointer-events:none;
 }
 
 .sun{
     position:absolute;
-
-    width:105px;
-    height:105px;
-
-    left:50%;
-    top:50%;
-
-    transform:translate(-50%,-50%);
+    width:85px;
+    height:85px;
     border-radius:50%;
-
-    background:radial-gradient(
-        circle,
-        #fff 4%,
-        #fff7a0 22%,
-        #ffd21c 48%,
-        #ff8500 75%,
-        #ff3d00 100%
-    );
-
+    background:radial-gradient(circle,#fff7a0,#ffd21f,#ff7b00);
     box-shadow:
-        0 0 30px #fff,
-        0 0 70px #ffd21c,
-        0 0 130px #ff8500;
-
-    animation:sunGlow 3s infinite alternate;
-}
-
-@keyframes sunGlow{
-    from{filter:brightness(1);}
-    to{filter:brightness(1.25);}
+        0 0 35px #ffb300,
+        0 0 80px rgba(255,150,0,.7);
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
 }
 
 .orbit{
     position:absolute;
-
-    left:50%;
-    top:50%;
-
-    border:1px solid rgba(100,220,255,.38);
+    border:1px solid rgba(130,220,255,.25);
     border-radius:50%;
-
-    transform:
-        translate(-50%,-50%)
-        rotateX(65deg);
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
 }
 
-.o1{width:160px;height:160px;}
-.o2{width:230px;height:230px;}
-.o3{width:310px;height:310px;}
-.o4{width:400px;height:400px;}
-.o5{width:510px;height:510px;}
-.o6{width:630px;height:630px;}
+.o1{width:130px;height:130px;}
+.o2{width:190px;height:190px;}
+.o3{width:260px;height:260px;}
+.o4{width:340px;height:340px;}
+.o5{width:450px;height:450px;}
+.o6{width:580px;height:580px;}
 
 .planet{
     position:absolute;
-    left:50%;
-    top:50%;
     border-radius:50%;
+    top:50%;
+    left:50%;
 }
 
 .p1{
-    width:13px;height:13px;
+    width:10px;
+    height:10px;
     background:#aaa;
-    animation:o1 5s linear infinite;
+    animation:o1 4s linear infinite;
 }
 
 .p2{
-    width:19px;height:19px;
-    background:#d6a96c;
-    animation:o2 8s linear infinite;
+    width:15px;
+    height:15px;
+    background:#d89b55;
+    animation:o2 6s linear infinite;
 }
 
 .p3{
-    width:25px;height:25px;
-
-    background:
-        radial-gradient(circle at 30% 30%,
-        #8df3ff,#087cff 55%,#063c9e);
-
-    box-shadow:0 0 18px #00cfff;
-
-    animation:o3 11s linear infinite;
+    width:17px;
+    height:17px;
+    background:#4da6ff;
+    animation:o3 8s linear infinite;
 }
 
 .p4{
-    width:19px;height:19px;
-    background:#d9533d;
-    animation:o4 15s linear infinite;
+    width:14px;
+    height:14px;
+    background:#d9573f;
+    animation:o4 11s linear infinite;
 }
 
 .p5{
-    width:43px;height:43px;
-
-    background:
-        linear-gradient(
-            #d8b58c,
-            #8d684d,
-            #e1c79e,
-            #9b7455
-        );
-
-    animation:o5 20s linear infinite;
+    width:34px;
+    height:34px;
+    background:#d9b27c;
+    animation:o5 15s linear infinite;
 }
 
 .p6{
-    width:35px;height:35px;
-    background:#d9bd7c;
-    animation:o6 26s linear infinite;
+    width:30px;
+    height:30px;
+    background:#d7c08a;
+    animation:o6 20s linear infinite;
 }
 
 .p6::after{
     content:"";
-
     position:absolute;
-
-    width:62px;
-    height:16px;
-
+    width:48px;
+    height:14px;
+    border:2px solid rgba(230,210,160,.8);
+    border-radius:50%;
     left:50%;
     top:50%;
-
-    transform:
-        translate(-50%,-50%)
-        rotate(-15deg);
-
-    border:3px solid rgba(230,210,160,.85);
-    border-radius:50%;
+    transform:translate(-50%,-50%) rotate(-15deg);
 }
 
 @keyframes o1{
-    from{transform:rotate(0deg) translateX(80px);}
-    to{transform:rotate(360deg) translateX(80px);}
+    from{transform:rotate(0deg) translateX(65px);}
+    to{transform:rotate(360deg) translateX(65px);}
 }
 
 @keyframes o2{
-    from{transform:rotate(60deg) translateX(115px);}
-    to{transform:rotate(420deg) translateX(115px);}
+    from{transform:rotate(0deg) translateX(95px);}
+    to{transform:rotate(360deg) translateX(95px);}
 }
 
 @keyframes o3{
-    from{transform:rotate(120deg) translateX(155px);}
-    to{transform:rotate(480deg) translateX(155px);}
+    from{transform:rotate(0deg) translateX(130px);}
+    to{transform:rotate(360deg) translateX(130px);}
 }
 
 @keyframes o4{
-    from{transform:rotate(180deg) translateX(200px);}
-    to{transform:rotate(540deg) translateX(200px);}
+    from{transform:rotate(0deg) translateX(170px);}
+    to{transform:rotate(360deg) translateX(170px);}
 }
 
 @keyframes o5{
-    from{transform:rotate(230deg) translateX(255px);}
-    to{transform:rotate(590deg) translateX(255px);}
+    from{transform:rotate(0deg) translateX(225px);}
+    to{transform:rotate(360deg) translateX(225px);}
 }
 
 @keyframes o6{
-    from{transform:rotate(300deg) translateX(315px);}
-    to{transform:rotate(660deg) translateX(315px);}
+    from{transform:rotate(0deg) translateX(290px);}
+    to{transform:rotate(360deg) translateX(290px);}
 }
 
-/* ===== เนื้อหา ===== */
-.main{
-    position:relative;
-    z-index:10;
+/* ================= MOBILE ================= */
 
-    min-height:calc(100vh - 75px);
+@media(max-width:600px){
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    padding:20px;
-}
-
-.card{
-    width:720px;
-    max-height:calc(100vh - 105px);
-
-    padding:25px 30px;
-
-    background:rgba(0,15,45,.42);
-    backdrop-filter:blur(7px);
-
-    border:1px solid rgba(100,220,255,.35);
-    border-radius:30px;
-
-    box-shadow:
-        0 0 25px rgba(0,150,255,.18);
-
-    text-align:center;
-
-    overflow:auto;
-}
-
-.card h1{
-    font-size:38px;
-
-    color:#69e8ff;
-
-    text-shadow:
-        0 0 10px #00d9ff,
-        0 0 25px #008cff;
-
-    margin-bottom:12px;
-}
-
-/* รูปตัวเอง */
-.profile{
-    width:145px;
-    height:145px;
-
-    object-fit:cover;
-    border-radius:50%;
-
-    border:3px solid rgba(120,230,255,.8);
-
-    box-shadow:
-        0 0 25px rgba(0,210,255,.65);
-
-    margin-bottom:15px;
-}
-
-/* แยกแต่ละหัวข้อ */
-.info-box{
-    text-align:left;
-
-    padding:16px 20px;
-
-    margin-top:12px;
-
-    background:rgba(0,60,110,.30);
-
-    border:1px solid rgba(100,220,255,.28);
-
-    border-radius:18px;
-
-    transition:.25s;
-}
-
-.info-box:hover{
-    transform:translateY(-3px);
-
-    background:rgba(0,100,160,.35);
-
-    box-shadow:
-        0 0 18px rgba(0,210,255,.3);
-}
-
-.info-box strong{
-    color:#69e8ff;
-    font-size:18px;
-}
-
-.info-box p{
-    line-height:1.7;
-    margin-top:4px;
-}
-
-.next{
-    display:inline-block;
-
-    margin-top:18px;
-
-    padding:13px 30px;
-
-    background:linear-gradient(
-        90deg,
-        #0077ff,
-        #00d9ff
-    );
-
-    color:white;
-    text-decoration:none;
-
-    border-radius:30px;
-
-    font-weight:bold;
-
-    box-shadow:
-        0 0 20px rgba(0,210,255,.55);
-
-    transition:.25s;
-}
-
-.next:hover{
-    transform:translateY(-4px) scale(1.04);
-
-    box-shadow:
-        0 0 30px #00d9ff;
-}
-
-.next:active{
-    transform:scale(.90);
-
-    box-shadow:
-        0 0 45px #fff,
-        0 0 70px #00d9ff;
-}
-
-@media(max-width:800px){
-
-    body{
-        overflow:auto;
+    h1{
+        font-size:32px;
     }
 
-    nav{
-        flex-wrap:wrap;
-    }
-
-    nav a{
-        font-size:13px;
-        padding:8px 12px;
+    .personal-grid{
+        grid-template-columns:1fr;
     }
 
     .solar{
-        right:-300px;
-        opacity:.5;
+        width:500px;
+        height:500px;
+        right:-220px;
+        top:180px;
+        opacity:.55;
     }
 
-    .card{
-        width:100%;
+    nav a{
+        padding:8px 13px;
+        font-size:13px;
     }
 }
 </style>
@@ -441,7 +353,20 @@ nav a:active{
 
 <div class="space"></div>
 
+<!-- ================= NAVIGATION ================= -->
+
+<nav>
+    <a href="index.html">🏠 หน้าแรก</a>
+    <a href="about.html">👩🏻‍💻 เกี่ยวกับฉัน</a>
+    <a href="portfolio.html">💼 ผลงาน</a>
+    <a href="contact.html">📱 ติดต่อ</a>
+</nav>
+
+<!-- ================= SOLAR SYSTEM ================= -->
+
 <div class="solar">
+
+    <div class="sun"></div>
 
     <div class="orbit o1"></div>
     <div class="orbit o2"></div>
@@ -449,8 +374,6 @@ nav a:active{
     <div class="orbit o4"></div>
     <div class="orbit o5"></div>
     <div class="orbit o6"></div>
-
-    <div class="sun"></div>
 
     <div class="planet p1"></div>
     <div class="planet p2"></div>
@@ -461,6 +384,414 @@ nav a:active{
 
 </div>
 
+<!-- ================= ABOUT ================= -->
+
+<div class="container">
+
+    <h1>ABOUT ME</h1>
+
+    <img src="profile.jpg" class="profile">
+
+    <!-- ข้อมูลส่วนตัว -->
+
+    <div class="section-title">👤 ข้อมูลส่วนตัว</div>
+
+    <div class="personal-grid">
+
+        <div class="info-box">
+            <h3>ชื่อ - นามสกุล</h3>
+            <p>นางสาวภัคจิรา นงนุช</p>
+        </div>
+
+        <div class="info-box">
+            <h3>ชื่อเล่น</h3>
+            <p>แพรว</p>
+        </div>
+
+        <div class="info-box">
+            <h3>อายุ</h3>
+            <p>17ปี</p>
+        </div>
+
+        <div class="info-box">
+            <h3>วันเกิด</h3>
+            <p>25 มิถุนายน 2552</p>
+        </div>
+
+        <div class="info-box">
+            <h3>ส่วนสูง</h3>
+            <p>ใส่ส่วนสูง 159 ซม.</p>
+        </div>
+
+        <div class="info-box">
+            <h3>น้ำหนัก</h3>
+            <p>ใส่น้ำหนัก 42 กก.</p>
+        </div>
+
+        <div class="info-box">
+            <h3>สัญชาติ</h3>
+            <p>ไทย</p>
+        </div>
+
+        <div class="info-box">
+            <h3>งานอดิเรก</h3>
+            <p>ฟังเพลง ดูหนัง เล่นกับสัตว์เลี้ยง ๆ</<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Me - ภัคจิรา</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    color:white;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+/* ================= BACKGROUND ================= */
+
+.space{
+    position:fixed;
+    inset:0;
+    z-index:-20;
+    background:
+        linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.25)),
+        url("space.jpg") center/cover no-repeat;
+}
+
+.space::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+        radial-gradient(white 1px,transparent 1.5px),
+        radial-gradient(#8eeaff 1px,transparent 1.5px);
+    background-size:100px 100px,160px 160px;
+    opacity:.4;
+}
+
+/* ================= NAV ================= */
+
+nav{
+    position:relative;
+    z-index:20;
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    padding:22px 15px;
+    flex-wrap:wrap;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    padding:10px 20px;
+    border-radius:25px;
+    background:rgba(0,60,110,.35);
+    border:1px solid rgba(100,220,255,.35);
+    transition:.25s;
+}
+
+nav a:hover{
+    transform:translateY(-3px) scale(1.04);
+    background:rgba(0,150,220,.35);
+    color:#8eeaff;
+    box-shadow:0 0 15px rgba(0,210,255,.7);
+}
+
+nav a:active{
+    transform:scale(.90);
+    box-shadow:
+        0 0 30px #00d9ff,
+        inset 0 0 15px rgba(255,255,255,.3);
+}
+
+/* ================= CONTENT ================= */
+
+.container{
+    position:relative;
+    z-index:10;
+    width:min(900px,92%);
+    margin:20px auto 50px;
+    text-align:center;
+}
+
+h1{
+    font-size:42px;
+    color:#8eeaff;
+    text-shadow:0 0 15px #00cfff;
+    margin-bottom:18px;
+}
+
+.profile{
+    width:145px;
+    height:145px;
+    object-fit:cover;
+    border-radius:50%;
+    border:3px solid #8eeaff;
+    box-shadow:0 0 25px rgba(0,210,255,.8);
+    margin-bottom:25px;
+}
+
+/* ================= BOX ================= */
+
+.section-title{
+    font-size:22px;
+    color:#8eeaff;
+    margin:25px 0 15px;
+}
+
+.info-box{
+    background:rgba(0,60,110,.30);
+    backdrop-filter:blur(7px);
+    border:1px solid rgba(100,220,255,.35);
+    border-radius:18px;
+    padding:18px 22px;
+    margin:12px 0;
+    text-align:left;
+    transition:.3s;
+}
+
+.info-box:hover{
+    transform:translateY(-4px);
+    background:rgba(0,100,160,.38);
+    box-shadow:0 0 20px rgba(0,210,255,.4);
+}
+
+.info-box h3{
+    color:#8eeaff;
+    margin-bottom:7px;
+}
+
+.info-box p{
+    line-height:1.6;
+    color:#f2fbff;
+}
+
+/* ================= PERSONAL INFORMATION ================= */
+
+.personal-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+}
+
+.personal-grid .info-box{
+    margin:0;
+}
+
+.personal-grid h3{
+    font-size:16px;
+}
+
+.personal-grid p{
+    font-size:15px;
+}
+
+/* ================= BUTTON ================= */
+
+.btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:13px 28px;
+    border-radius:30px;
+    color:white;
+    text-decoration:none;
+    background:rgba(0,130,190,.35);
+    border:1px solid #62ddff;
+    transition:.25s;
+}
+
+.btn:hover{
+    transform:translateY(-4px) scale(1.05);
+    background:rgba(0,180,230,.45);
+    box-shadow:0 0 25px rgba(0,220,255,.8);
+}
+
+.btn:active{
+    transform:scale(.9);
+    box-shadow:
+        0 0 35px #00d9ff,
+        inset 0 0 20px rgba(255,255,255,.3);
+}
+
+/* ================= SOLAR SYSTEM ================= */
+
+.solar{
+    position:fixed;
+    width:720px;
+    height:720px;
+    right:-180px;
+    top:100px;
+    perspective:1000px;
+    transform:rotateX(62deg) rotateZ(-10deg);
+    z-index:-5;
+    pointer-events:none;
+}
+
+.sun{
+    position:absolute;
+    width:85px;
+    height:85px;
+    border-radius:50%;
+    background:radial-gradient(circle,#fff7a0,#ffd21f,#ff7b00);
+    box-shadow:
+        0 0 35px #ffb300,
+        0 0 80px rgba(255,150,0,.7);
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+
+.orbit{
+    position:absolute;
+    border:1px solid rgba(130,220,255,.25);
+    border-radius:50%;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+
+.o1{width:130px;height:130px;}
+.o2{width:190px;height:190px;}
+.o3{width:260px;height:260px;}
+.o4{width:340px;height:340px;}
+.o5{width:450px;height:450px;}
+.o6{width:580px;height:580px;}
+
+.planet{
+    position:absolute;
+    border-radius:50%;
+    top:50%;
+    left:50%;
+}
+
+.p1{
+    width:10px;
+    height:10px;
+    background:#aaa;
+    animation:o1 4s linear infinite;
+}
+
+.p2{
+    width:15px;
+    height:15px;
+    background:#d89b55;
+    animation:o2 6s linear infinite;
+}
+
+.p3{
+    width:17px;
+    height:17px;
+    background:#4da6ff;
+    animation:o3 8s linear infinite;
+}
+
+.p4{
+    width:14px;
+    height:14px;
+    background:#d9573f;
+    animation:o4 11s linear infinite;
+}
+
+.p5{
+    width:34px;
+    height:34px;
+    background:#d9b27c;
+    animation:o5 15s linear infinite;
+}
+
+.p6{
+    width:30px;
+    height:30px;
+    background:#d7c08a;
+    animation:o6 20s linear infinite;
+}
+
+.p6::after{
+    content:"";
+    position:absolute;
+    width:48px;
+    height:14px;
+    border:2px solid rgba(230,210,160,.8);
+    border-radius:50%;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%) rotate(-15deg);
+}
+
+@keyframes o1{
+    from{transform:rotate(0deg) translateX(65px);}
+    to{transform:rotate(360deg) translateX(65px);}
+}
+
+@keyframes o2{
+    from{transform:rotate(0deg) translateX(95px);}
+    to{transform:rotate(360deg) translateX(95px);}
+}
+
+@keyframes o3{
+    from{transform:rotate(0deg) translateX(130px);}
+    to{transform:rotate(360deg) translateX(130px);}
+}
+
+@keyframes o4{
+    from{transform:rotate(0deg) translateX(170px);}
+    to{transform:rotate(360deg) translateX(170px);}
+}
+
+@keyframes o5{
+    from{transform:rotate(0deg) translateX(225px);}
+    to{transform:rotate(360deg) translateX(225px);}
+}
+
+@keyframes o6{
+    from{transform:rotate(0deg) translateX(290px);}
+    to{transform:rotate(360deg) translateX(290px);}
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:600px){
+
+    h1{
+        font-size:32px;
+    }
+
+    .personal-grid{
+        grid-template-columns:1fr;
+    }
+
+    .solar{
+        width:500px;
+        height:500px;
+        right:-220px;
+        top:180px;
+        opacity:.55;
+    }
+
+    nav a{
+        padding:8px 13px;
+        font-size:13px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="space"></div>
+
+<!-- ================= NAVIGATION ================= -->
+
 <nav>
     <a href="index.html">🏠 หน้าแรก</a>
     <a href="about.html">👩🏻‍💻 เกี่ยวกับฉัน</a>
@@ -468,56 +799,688 @@ nav a:active{
     <a href="contact.html">📱 ติดต่อ</a>
 </nav>
 
-<div class="main">
+<!-- ================= SOLAR SYSTEM ================= -->
 
-<div class="card">
+<div class="solar">
 
-    <img src="profile.jpg" class="profile" alt="รูปของฉัน">
+    <div class="sun"></div>
+
+    <div class="orbit o1"></div>
+    <div class="orbit o2"></div>
+    <div class="orbit o3"></div>
+    <div class="orbit o4"></div>
+    <div class="orbit o5"></div>
+    <div class="orbit o6"></div>
+
+    <div class="planet p1"></div>
+    <div class="planet p2"></div>
+    <div class="planet p3"></div>
+    <div class="planet p4"></div>
+    <div class="planet p5"></div>
+    <div class="planet p6"></div>
+
+</div>
+
+<!-- ================= ABOUT ================= -->
+
+<div class="container">
 
     <h1>ABOUT ME</h1>
 
-    <div class="info-box">
-        <strong>👩🏻 ข้อมูลส่วนตัว</strong>
-        <p>ชื่อ:นางสาวภัคจิรา นงนุช
-        ชื่อเล่น:แพรว
-        อายุ:17ปี
-        น้ำหนัก:42
-        ส่วนสูง:159</p>
+    <img src="profile.jpg" class="profile">
+
+    <!-- ข้อมูลส่วนตัว -->
+
+    <div class="section-title">👤 ข้อมูลส่วนตัว</div>
+
+    <div class="personal-grid">
+
+        <div class="info-box">
+            <h3>ชื่อ - นามสกุล</h3>
+            <p>ภัคจิรา นงนุช</p>
+        </div>
+
+        <div class="info-box">
+            <h3>ชื่อเล่น</h3>
+            <p>ใส่ชื่อเล่นของคุณ</p>
+        </div>
+
+        <div class="info-box">
+            <h3>อายุ</h3>
+            <p>ใส่อายุของคุณ</p>
+        </div>
+
+        <div class="info-box">
+            <h3>วันเกิด</h3>
+            <p>ใส่วัน / เดือน / ปีเกิด</p>
+        </div>
+
+        <div class="info-box">
+            <h3>ส่วนสูง</h3>
+            <p>ใส่ส่วนสูง ___ ซม.</p>
+        </div>
+
+        <div class="info-box">
+            <h3>น้ำหนัก</h3>
+            <p>ใส่น้ำหนัก ___ กก.</p>
+        </div>
+
+        <div class="info-box">
+            <h3>สัญชาติ</h3>
+            <p>ไทย</p>
+        </div>
+
+        <div class="info-box">
+            <h3>งานอดิเรก</h3>
+            <p>ฟังเพลง ดูหนัง เล่นกับสัตว์เลี้ยง และเรียนรู้สิ่งใหม่ ๆ</p>
+        </div>
+
     </div>
 
-    <div class="info-box">
-        <strong>🎓 ระดับการศึกษา</strong>
-        <p>นักเรียนชั้นมัธยมศึกษาปีที่ 6 โรงเรียนบ้านบึงอุตสาหกรรมนุเคราะห์</p>
-    </div>
+    <!-- การศึกษา -->
+
+    <div class="section-title">🎓 การศึกษา</div>
 
     <div class="info-box">
-        <strong>💡 ความสนใจ</strong>
+        <h3>ระดับการศึกษา</h3>
+        <p>กำลังศึกษาอยู่ชั้นมัธยมศึกษาปีที่ 6</p>
+    </div>
+
+    <!-- ความสนใจ -->
+
+    <div class="section-title">💙 ความสนใจ</div>
+
+    <div class="info-box">
+        <h3>สิ่งที่สนใจ</h3>
         <p>
-            สนใจคณะบริหาร สาขาบริหารธุรกิจ ที่มหาวิทยาลัยบูรพา
+            บริหารธุรกิจ การตลาด เทคโนโลยี
+            และการเรียนรู้สิ่งใหม่ ๆ
         </p>
     </div>
 
+    <!-- ทักษะ -->
+
+    <div class="section-title">✨ ทักษะ</div>
+
     <div class="info-box">
-        <strong>⭐ ทักษะ</strong>
+        <h3>ทักษะที่มี</h3>
         <p>
-            การทำงานเป็นทีม • ความรับผิดชอบ
-            • การสื่อสาร • ความคิดสร้างสรรค์
+            การทำงานเป็นทีม ความรับผิดชอบ
+            การสื่อสาร และความคิดสร้างสรรค์
         </p>
     </div>
 
+    <!-- เป้าหมาย -->
+
+    <div class="section-title">🎯 เป้าหมายในอนาคต</div>
+
     <div class="info-box">
-        <strong>🎯 เป้าหมายในอนาคต</strong>
+        <h3>เป้าหมาย</h3>
         <p>
-            ตั้งใจศึกษาต่อในด้านบริหารธุรกิจเพื่อพัฒนาความรู้และทักษะที่สามารถนำไปใช้ในการทำงานจริง
-            และอยากค้นหาความถนัดของตัวเองให้ชัดเจนมากขึ้นเพื่อนำไปต่อยอดและสร้างอนาคตที่มั่นคงให้กับตัวเอง
+            ฉันตั้งใจที่จะศึกษาต่อด้านบริหารธุรกิจ
+            และนำความรู้ที่ได้รับไปพัฒนาตัวเอง
+            และต่อยอดในการทำงาน เพื่อให้มีอาชีพที่มั่นคง
+            และได้ทำงานในสิ่งที่ตัวเองสนใจ
         </p>
     </div>
 
-    <a href="portfolio.html" class="next">
+    <a href="portfolio.html" class="btn">
         ➡️ ดูผลงานของฉัน
     </a>
 
 </div>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Me - ภัคจิรา</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    color:white;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+/* ================= BACKGROUND ================= */
+
+.space{
+    position:fixed;
+    inset:0;
+    z-index:-20;
+    background:
+        linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.25)),
+        url("space.jpg") center/cover no-repeat;
+}
+
+.space::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+        radial-gradient(white 1px,transparent 1.5px),
+        radial-gradient(#8eeaff 1px,transparent 1.5px);
+    background-size:100px 100px,160px 160px;
+    opacity:.4;
+}
+
+/* ================= NAV ================= */
+
+nav{
+    position:relative;
+    z-index:20;
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    padding:22px 15px;
+    flex-wrap:wrap;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    padding:10px 20px;
+    border-radius:25px;
+    background:rgba(0,60,110,.35);
+    border:1px solid rgba(100,220,255,.35);
+    transition:.25s;
+}
+
+nav a:hover{
+    transform:translateY(-3px) scale(1.04);
+    background:rgba(0,150,220,.35);
+    color:#8eeaff;
+    box-shadow:0 0 15px rgba(0,210,255,.7);
+}
+
+nav a:active{
+    transform:scale(.90);
+    box-shadow:
+        0 0 30px #00d9ff,
+        inset 0 0 15px rgba(255,255,255,.3);
+}
+
+/* ================= CONTENT ================= */
+
+.container{
+    position:relative;
+    z-index:10;
+    width:min(900px,92%);
+    margin:20px auto 50px;
+    text-align:center;
+}
+
+h1{
+    font-size:42px;
+    color:#8eeaff;
+    text-shadow:0 0 15px #00cfff;
+    margin-bottom:18px;
+}
+
+.profile{
+    width:145px;
+    height:145px;
+    object-fit:cover;
+    border-radius:50%;
+    border:3px solid #8eeaff;
+    box-shadow:0 0 25px rgba(0,210,255,.8);
+    margin-bottom:25px;
+}
+
+/* ================= BOX ================= */
+
+.section-title{
+    font-size:22px;
+    color:#8eeaff;
+    margin:25px 0 15px;
+}
+
+.info-box{
+    background:rgba(0,60,110,.30);
+    backdrop-filter:blur(7px);
+    border:1px solid rgba(100,220,255,.35);
+    border-radius:18px;
+    padding:18px 22px;
+    margin:12px 0;
+    text-align:left;
+    transition:.3s;
+}
+
+.info-box:hover{
+    transform:translateY(-4px);
+    background:rgba(0,100,160,.38);
+    box-shadow:0 0 20px rgba(0,210,255,.4);
+}
+
+.info-box h3{
+    color:#8eeaff;
+    margin-bottom:7px;
+}
+
+.info-box p{
+    line-height:1.6;
+    color:#f2fbff;
+}
+
+/* ================= PERSONAL INFORMATION ================= */
+
+.personal-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+}
+
+.personal-grid .info-box{
+    margin:0;
+}
+
+.personal-grid h3{
+    font-size:16px;
+}
+
+.personal-grid p{
+    font-size:15px;
+}
+
+/* ================= BUTTON ================= */
+
+.btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:13px 28px;
+    border-radius:30px;
+    color:white;
+    text-decoration:none;
+    background:rgba(0,130,190,.35);
+    border:1px solid #62ddff;
+    transition:.25s;
+}
+
+.btn:hover{
+    transform:translateY(-4px) scale(1.05);
+    background:rgba(0,180,230,.45);
+    box-shadow:0 0 25px rgba(0,220,255,.8);
+}
+
+.btn:active{
+    transform:scale(.9);
+    box-shadow:
+        0 0 35px #00d9ff,
+        inset 0 0 20px rgba(255,255,255,.3);
+}
+
+/* ================= SOLAR SYSTEM ================= */
+
+.solar{
+    position:fixed;
+    width:720px;
+    height:720px;
+    right:-180px;
+    top:100px;
+    perspective:1000px;
+    transform:rotateX(62deg) rotateZ(-10deg);
+    z-index:-5;
+    pointer-events:none;
+}
+
+.sun{
+    position:absolute;
+    width:85px;
+    height:85px;
+    border-radius:50%;
+    background:radial-gradient(circle,#fff7a0,#ffd21f,#ff7b00);
+    box-shadow:
+        0 0 35px #ffb300,
+        0 0 80px rgba(255,150,0,.7);
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+
+.orbit{
+    position:absolute;
+    border:1px solid rgba(130,220,255,.25);
+    border-radius:50%;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+
+.o1{width:130px;height:130px;}
+.o2{width:190px;height:190px;}
+.o3{width:260px;height:260px;}
+.o4{width:340px;height:340px;}
+.o5{width:450px;height:450px;}
+.o6{width:580px;height:580px;}
+
+.planet{
+    position:absolute;
+    border-radius:50%;
+    top:50%;
+    left:50%;
+}
+
+.p1{
+    width:10px;
+    height:10px;
+    background:#aaa;
+    animation:o1 4s linear infinite;
+}
+
+.p2{
+    width:15px;
+    height:15px;
+    background:#d89b55;
+    animation:o2 6s linear infinite;
+}
+
+.p3{
+    width:17px;
+    height:17px;
+    background:#4da6ff;
+    animation:o3 8s linear infinite;
+}
+
+.p4{
+    width:14px;
+    height:14px;
+    background:#d9573f;
+    animation:o4 11s linear infinite;
+}
+
+.p5{
+    width:34px;
+    height:34px;
+    background:#d9b27c;
+    animation:o5 15s linear infinite;
+}
+
+.p6{
+    width:30px;
+    height:30px;
+    background:#d7c08a;
+    animation:o6 20s linear infinite;
+}
+
+.p6::after{
+    content:"";
+    position:absolute;
+    width:48px;
+    height:14px;
+    border:2px solid rgba(230,210,160,.8);
+    border-radius:50%;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%) rotate(-15deg);
+}
+
+@keyframes o1{
+    from{transform:rotate(0deg) translateX(65px);}
+    to{transform:rotate(360deg) translateX(65px);}
+}
+
+@keyframes o2{
+    from{transform:rotate(0deg) translateX(95px);}
+    to{transform:rotate(360deg) translateX(95px);}
+}
+
+@keyframes o3{
+    from{transform:rotate(0deg) translateX(130px);}
+    to{transform:rotate(360deg) translateX(130px);}
+}
+
+@keyframes o4{
+    from{transform:rotate(0deg) translateX(170px);}
+    to{transform:rotate(360deg) translateX(170px);}
+}
+
+@keyframes o5{
+    from{transform:rotate(0deg) translateX(225px);}
+    to{transform:rotate(360deg) translateX(225px);}
+}
+
+@keyframes o6{
+    from{transform:rotate(0deg) translateX(290px);}
+    to{transform:rotate(360deg) translateX(290px);}
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:600px){
+
+    h1{
+        font-size:32px;
+    }
+
+    .personal-grid{
+        grid-template-columns:1fr;
+    }
+
+    .solar{
+        width:500px;
+        height:500px;
+        right:-220px;
+        top:180px;
+        opacity:.55;
+    }
+
+    nav a{
+        padding:8px 13px;
+        font-size:13px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="space"></div>
+
+<!-- ================= NAVIGATION ================= -->
+
+<nav>
+    <a href="index.html">🏠 หน้าแรก</a>
+    <a href="about.html">👩🏻‍💻 เกี่ยวกับฉัน</a>
+    <a href="portfolio.html">💼 ผลงาน</a>
+    <a href="contact.html">📱 ติดต่อ</a>
+</nav>
+
+<!-- ================= SOLAR SYSTEM ================= -->
+
+<div class="solar">
+
+    <div class="sun"></div>
+
+    <div class="orbit o1"></div>
+    <div class="orbit o2"></div>
+    <div class="orbit o3"></div>
+    <div class="orbit o4"></div>
+    <div class="orbit o5"></div>
+    <div class="orbit o6"></div>
+
+    <div class="planet p1"></div>
+    <div class="planet p2"></div>
+    <div class="planet p3"></div>
+    <div class="planet p4"></div>
+    <div class="planet p5"></div>
+    <div class="planet p6"></div>
+
+</div>
+
+<!-- ================= ABOUT ================= -->
+
+<div class="container">
+
+    <h1>ABOUT ME</h1>
+
+    <img src="profile.jpg" class="profile">
+
+    <!-- ข้อมูลส่วนตัว -->
+
+    <div class="section-title">👤 ข้อมูลส่วนตัว</div>
+
+    <div class="personal-grid">
+
+        <div class="info-box">
+            <h3>ชื่อ - นามสกุล</h3>
+            <p>นางสาวภัคจิรา นงนุช</p>
+        </div>
+
+        <div class="info-box">
+            <h3>ชื่อเล่น</h3>
+            <p>แพรว</p>
+        </div>
+
+        <div class="info-box">
+            <h3>อายุ</h3>
+            <p>17ปี</p>
+        </div>
+
+        <div class="info-box">
+            <h3>วันเกิด</h3>
+            <p>25 มิถุนายน พ.ศ.2552</p>
+        </div>
+
+        <div class="info-box">
+            <h3>ส่วนสูง</h3>
+            <p>ใส่ส่วนสูง 159 ซม.</p>
+        </div>
+
+        <div class="info-box">
+            <h3>น้ำหนัก</h3>
+            <p>ใส่น้ำหนัก 42 กก.</p>
+        </div>
+
+        <div class="info-box">
+            <h3>สัญชาติ</h3>
+            <p>ไทย</p>
+        </div>
+
+        <div class="info-box">
+            <h3>งานอดิเรก</h3>
+            <p>ฟังเพลง ดูหนัง เล่นกับสัตว์เลี้ยง และเรียนรู้สิ่งใหม่ ๆ</p>
+        </div>
+
+    </div>
+
+    <!-- การศึกษา -->
+
+    <div class="section-title">🎓 การศึกษา</div>
+
+    <div class="info-box">
+        <h3>ระดับการศึกษา</h3>
+        <p>กำลังศึกษาอยู่ชั้นมัธยมศึกษาปีที่ 6</p>
+    </div>
+
+    <!-- ความสนใจ -->
+
+    <div class="section-title">💙 ความสนใจ</div>
+
+    <div class="info-box">
+        <h3>สิ่งที่สนใจ</h3>
+        <p>
+            บริหารธุรกิจ การตลาด เทคโนโลยี
+            และการเรียนรู้สิ่งใหม่ ๆ
+        </p>
+    </div>
+
+    <!-- ทักษะ -->
+
+    <div class="section-title">✨ ทักษะ</div>
+
+    <div class="info-box">
+        <h3>ทักษะที่มี</h3>
+        <p>
+            การทำงานเป็นทีม ความรับผิดชอบ
+            การสื่อสาร และความคิดสร้างสรรค์
+        </p>
+    </div>
+
+    <!-- เป้าหมาย -->
+
+    <div class="section-title">🎯 เป้าหมายในอนาคต</div>
+
+    <div class="info-box">
+        <h3>เป้าหมาย</h3>
+        <p>
+            ดิฉันตั้งใจที่จะศึกษาต่อด้านบริหารธุรกิจ
+            และนำความรู้ที่ได้รับไปพัฒนาตัวเอง
+            และต่อยอดในการทำงาน เพื่อให้มีอาชีพที่มั่นคง
+            และได้ทำงานในสิ่งที่ตัวเองสนใจ
+        </p>
+    </div>
+
+    <a href="portfolio.html" class="btn">
+        ➡️ ดูผลงานของฉัน
+    </a>
+
+</div>
+
+</body>
+</html>p>
+        </div>
+
+    </div>
+
+    <!-- การศึกษา -->
+
+    <div class="section-title">🎓 การศึกษา</div>
+
+    <div class="info-box">
+        <h3>ระดับการศึกษา</h3>
+        <p>กำลังศึกษาอยู่ชั้นมัธยมศึกษาปีที่ 6</p>
+    </div>
+
+    <!-- ความสนใจ -->
+
+    <div class="section-title">💙 ความสนใจ</div>
+
+    <div class="info-box">
+        <h3>คณะ/มหาลัย</h3>
+        <p>
+            คณะบริหาร สาขาบริหารธุรกิจระหว่างประเทศ มหาวิทยาลัยบูรพา
+        </p>
+    </div>
+
+    <!-- ทักษะ -->
+
+    <div class="section-title">✨ ทักษะ</div>
+
+    <div class="info-box">
+        <h3>ทักษะที่มี</h3>
+        <p>
+            การทำงานเป็นทีม ความรับผิดชอบ
+            การสื่อสาร และความคิดสร้างสรรค์
+        </p>
+    </div>
+
+    <!-- เป้าหมาย -->
+
+    <div class="section-title">🎯 เป้าหมายในอนาคต</div>
+
+    <div class="info-box">
+        <h3>เป้าหมาย</h3>
+        <p>
+            ฉันตั้งใจที่จะศึกษาต่อด้านบริหารธุรกิจ
+            และนำความรู้ที่ได้รับไปพัฒนาตัวเอง
+            และต่อยอดในการทำงาน เพื่อให้มีอาชีพที่มั่นคง
+            และได้ทำงานในสิ่งที่ตัวเองสนใจ
+        </p>
+    </div>
+
+    <a href="portfolio.html" class="btn">
+        ➡️ ดูผลงานของฉัน
+    </a>
 
 </div>
 
