@@ -1,389 +1,3 @@
-<!DOCTYPE html>
-<html lang="th">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio - ภัคจิรา</title>
-
-<style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
-
-body{
-    font-family:Arial, sans-serif;
-    color:white;
-    min-height:100vh;
-    overflow-x:hidden;
-}
-
-/* ================= BACKGROUND ================= */
-
-.space{
-    position:fixed;
-    inset:0;
-    z-index:-20;
-    background:
-        linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.25)),
-        url("space.jpg") center/cover no-repeat;
-}
-
-.space::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background-image:
-        radial-gradient(white 1px,transparent 1.5px),
-        radial-gradient(#8eeaff 1px,transparent 1.5px);
-    background-size:100px 100px,160px 160px;
-    opacity:.4;
-}
-
-/* ================= NAV ================= */
-
-nav{
-    position:relative;
-    z-index:20;
-    display:flex;
-    justify-content:center;
-    gap:12px;
-    padding:22px 15px;
-    flex-wrap:wrap;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    padding:10px 20px;
-    border-radius:25px;
-    background:rgba(0,60,110,.35);
-    border:1px solid rgba(100,220,255,.35);
-    transition:.25s;
-}
-
-nav a:hover{
-    transform:translateY(-3px) scale(1.04);
-    background:rgba(0,150,220,.35);
-    color:#8eeaff;
-    box-shadow:0 0 15px rgba(0,210,255,.7);
-}
-
-nav a:active{
-    transform:scale(.90);
-    box-shadow:
-        0 0 30px #00d9ff,
-        inset 0 0 15px rgba(255,255,255,.3);
-}
-
-/* ================= CONTENT ================= */
-
-.container{
-    position:relative;
-    z-index:10;
-    width:min(950px,92%);
-    margin:25px auto 50px;
-    text-align:center;
-}
-
-h1{
-    font-size:42px;
-    color:#8eeaff;
-    text-shadow:0 0 15px #00cfff;
-    margin-bottom:30px;
-}
-
-/* ================= WORK BOX ================= */
-
-.work-box{
-    background:rgba(0,15,45,.42);
-    backdrop-filter:blur(7px);
-    border:1px solid rgba(100,220,255,.35);
-    border-radius:22px;
-    padding:22px;
-    margin-bottom:25px;
-    transition:.3s;
-}
-
-.work-box:hover{
-    transform:translateY(-5px);
-    background:rgba(0,60,110,.48);
-    box-shadow:0 0 25px rgba(0,210,255,.45);
-}
-
-.work-box h2{
-    color:#8eeaff;
-    font-size:23px;
-    margin-bottom:18px;
-}
-
-/* ================= TWO IMAGES ================= */
-
-.work-images{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:18px;
-}
-
-.image-box{
-    background:rgba(0,50,90,.28);
-    border:1px solid rgba(100,220,255,.25);
-    border-radius:15px;
-    padding:10px;
-}
-
-.image-box img{
-    width:100%;
-    height:230px;
-    object-fit:cover;
-    border-radius:10px;
-    display:block;
-}
-
-.image-box p{
-    margin-top:10px;
-    color:#dff9ff;
-    font-size:15px;
-}
-
-/* ================= DESCRIPTION ================= */
-
-.description{
-    margin-top:18px;
-    line-height:1.6;
-    color:#f2fbff;
-}
-
-/* ================= BUTTON ================= */
-
-.btn{
-    display:inline-block;
-    margin-top:10px;
-    padding:13px 28px;
-    border-radius:30px;
-    color:white;
-    text-decoration:none;
-    background:rgba(0,130,190,.35);
-    border:1px solid #62ddff;
-    transition:.25s;
-}
-
-.btn:hover{
-    transform:translateY(-4px) scale(1.05);
-    background:rgba(0,180,230,.45);
-    box-shadow:0 0 25px rgba(0,220,255,.8);
-}
-
-.btn:active{
-    transform:scale(.9);
-    box-shadow:
-        0 0 35px #00d9ff,
-        inset 0 0 20px rgba(255,255,255,.3);
-}
-
-/* ================= SOLAR SYSTEM ================= */
-
-.solar{
-    position:fixed;
-    width:720px;
-    height:720px;
-    right:-180px;
-    top:100px;
-    perspective:1000px;
-    transform:rotateX(62deg) rotateZ(-10deg);
-    z-index:-5;
-    pointer-events:none;
-}
-
-.sun{
-    position:absolute;
-    width:85px;
-    height:85px;
-    border-radius:50%;
-    background:radial-gradient(circle,#fff7a0,#ffd21f,#ff7b00);
-    box-shadow:
-        0 0 35px #ffb300,
-        0 0 80px rgba(255,150,0,.7);
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-}
-
-.orbit{
-    position:absolute;
-    border:1px solid rgba(130,220,255,.25);
-    border-radius:50%;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-}
-
-.o1{width:130px;height:130px;}
-.o2{width:190px;height:190px;}
-.o3{width:260px;height:260px;}
-.o4{width:340px;height:340px;}
-.o5{width:450px;height:450px;}
-.o6{width:580px;height:580px;}
-
-.planet{
-    position:absolute;
-    border-radius:50%;
-    top:50%;
-    left:50%;
-}
-
-.p1{
-    width:10px;
-    height:10px;
-    background:#aaa;
-    animation:o1 4s linear infinite;
-}
-
-.p2{
-    width:15px;
-    height:15px;
-    background:#d89b55;
-    animation:o2 6s linear infinite;
-}
-
-.p3{
-    width:17px;
-    height:17px;
-    background:#4da6ff;
-    animation:o3 8s linear infinite;
-}
-
-.p4{
-    width:14px;
-    height:14px;
-    background:#d9573f;
-    animation:o4 11s linear infinite;
-}
-
-.p5{
-    width:34px;
-    height:34px;
-    background:#d9b27c;
-    animation:o5 15s linear infinite;
-}
-
-.p6{
-    width:30px;
-    height:30px;
-    background:#d7c08a;
-    animation:o6 20s linear infinite;
-}
-
-.p6::after{
-    content:"";
-    position:absolute;
-    width:48px;
-    height:14px;
-    border:2px solid rgba(230,210,160,.8);
-    border-radius:50%;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%) rotate(-15deg);
-}
-
-@keyframes o1{
-    from{transform:rotate(0deg) translateX(65px);}
-    to{transform:rotate(360deg) translateX(65px);}
-}
-
-@keyframes o2{
-    from{transform:rotate(0deg) translateX(95px);}
-    to{transform:rotate(360deg) translateX(95px);}
-}
-
-@keyframes o3{
-    from{transform:rotate(0deg) translateX(130px);}
-    to{transform:rotate(360deg) translateX(130px);}
-}
-
-@keyframes o4{
-    from{transform:rotate(0deg) translateX(170px);}
-    to{transform:rotate(360deg) translateX(170px);}
-}
-
-@keyframes o5{
-    from{transform:rotate(0deg) translateX(225px);}
-    to{transform:rotate(360deg) translateX(225px);}
-}
-
-@keyframes o6{
-    from{transform:rotate(0deg) translateX(290px);}
-    to{transform:rotate(360deg) translateX(290px);}
-}
-
-/* ================= MOBILE ================= */
-
-@media(max-width:600px){
-
-    h1{
-        font-size:32px;
-    }
-
-    .work-images{
-        grid-template-columns:1fr;
-    }
-
-    .image-box img{
-        height:220px;
-    }
-
-    .solar{
-        width:500px;
-        height:500px;
-        right:-220px;
-        top:180px;
-        opacity:.55;
-    }
-
-    nav a{
-        padding:8px 13px;
-        font-size:13px;
-    }
-}
-</style>
-</head>
-
-<body>
-
-<div class="space"></div>
-
-<!-- ================= NAVIGATION ================= -->
-
-<nav>
-    <a href="index.html">🏠 หน้าแรก</a>
-    <a href="about.html">👩🏻‍💻 เกี่ยวกับฉัน</a>
-    <a href="portfolio.html">💼 ผลงาน</a>
-    <a href="contact.html">📱 ติดต่อ</a>
-</nav>
-
-<!-- ================= SOLAR SYSTEM ================= -->
-
-<div class="solar">
-
-    <div class="sun"></div>
-
-    <div class="orbit o1"></div>
-    <div class="orbit o2"></div>
-    <div class="orbit o3"></div>
-    <div class="orbit o4"></div>
-    <div class="orbit o5"></div>
-    <div class="orbit o6"></div>
-
-    <div class="planet p1"></div>
-    <div class="planet p2"></div>
-    <div class="planet p3"></div>
-    <div class="planet p4"></div>
-    <div class="planet p5"></div>
-    <div class="planet p6"></div>
-
-</div>
-
 <!-- ================= PORTFOLIO ================= -->
 
 <div class="container">
@@ -445,11 +59,55 @@ h1{
 
     </div>
 
+
+    <!-- ผลงานที่ 3 -->
+
+    <div class="work-box">
+
+        <h2>🏆 ผลงานที่ 3</h2>
+
+        <div class="work-images">
+
+            <div class="image-box">
+                <img src="work3.jpg">
+                <p>📸 ภาพผลงาน / การลงมือทำจริง</p>
+            </div>
+
+        </div>
+
+        <p class="description">
+            ผลงานและประสบการณ์ที่ได้ลงมือทำจริง
+            และสามารถนำไปพัฒนาทักษะของตัวเอง
+        </p>
+
+    </div>
+
+
+    <!-- ผลงานที่ 4 -->
+
+    <div class="work-box">
+
+        <h2>🏆 ผลงานที่ 4</h2>
+
+        <div class="work-images">
+
+            <div class="image-box">
+                <img src="work4.jpg">
+                <p>📸 ภาพผลงาน / การลงมือทำจริง</p>
+            </div>
+
+        </div>
+
+        <p class="description">
+            ผลงานที่แสดงถึงความตั้งใจและประสบการณ์
+            จากการลงมือทำจริง
+        </p>
+
+    </div>
+
+
     <a href="contact.html" class="btn">
         ➡️ ติดต่อฉัน
     </a>
 
 </div>
-
-</body>
-</html>
